@@ -1,2 +1,5 @@
 29 2 24
     create a layout 
+
+create html 5 page that has 2 section. 1 section for ipl north indian teams and 1 section for ipl south indian teams. each section should article about each team. article should have team name, it's logo and brief description about his victories streangh and weakness. and aside tag should have coach, captain and vice captain detail and home ground name 
+

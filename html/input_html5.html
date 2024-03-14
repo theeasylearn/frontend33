@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Register form</h1>
+    <hr>
+    <table align="center" cellpadding="10" border="1" >
+        <tr>
+            <td>
+                <form action="success.html" method="post">
+                    <label for="fullname">Fullname</label> <br/>
+                    <input type="text" id="fullname" name="fullname" placeholder="surname name fathername" required />
+                    <hr />
+                    <label for="email">Email</label> <br/>
+                    <input type="email" id="email" name="email" placeholder="username@sitename.com"  required />
+                    <hr />
+                    <label for="password">Password</label> <br/>
+                    <input type="password" id="password" name="password" placeholder="your passwword"  required />
+                    <hr />
+                    <label for="dob">Birth Date</label> <br/>
+                    <input type="date" id="dob" name="dob"   required />
+                    <hr />
+                    <label for="pincode">Pincode</label> <br/>
+                    <input type="number" id="pincode" name="pincode" placeholder="6 digit pincode"  required />
+                    <hr />
+                    <label for="favourite_color">Favourite color</label> <br/>
+                    <input type="color" id="favourite_color" name="favourite_color"   required />
+                    <hr />
+                    <label for="phone">Phone</label> <br/>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number"  required />
+                    <hr />
+                    <label for="photo">Select Photo</label> <br/>
+                    <input type="file" id="photo" name="photo" accept="image/*"  required/>
+                    <hr />
+                    <input type="submit" value="submit your form" >
+                    
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

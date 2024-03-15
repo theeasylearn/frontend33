@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>formaction attribute in html</h1>
+    <form action="success.html">
+        <table border="1" align="center" cellpadding="10">
+            <tr>
+                <td>
+                    Enter email
+                </td>
+                <td>
+                    <input type="email" name="email" id="email" />
+                </td>
+            </tr>
+            <tr>
+                <td>Enter password</td>
+                <td>
+                    <input type="password" name="password" id="password" />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="submit" value="teacher login" />
+                </td>
+                <td align="center">
+                    <input type="submit" value="student login" formaction="success-2.html" />
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>

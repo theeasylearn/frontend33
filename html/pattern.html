@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>pattern attributes</h1>
+    <form action="success.html">
+        <table align="center" border="2">
+            <tr>
+                <td>Enter pan card no</td>
+                <td>
+                    <input type="text" name="pancard" id="pancard" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" required />
+                </td>
+            </tr>
+            <tr>
+                <td>aadhar card</td>
+                <td>
+                    <input type="text" name="aadharcard" id="aadharcard"  pattern="[0-9]{12}" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    passport
+                </td>
+                <td>
+                    <input type="text" name="passport" id="passport"  pattern="[A-Z]{1}[0-9]{7}" required />
+
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="submit" value="register" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

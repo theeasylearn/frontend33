@@ -11,12 +11,12 @@
     <table align="center" cellpadding="10" border="1" >
         <tr>
             <td>
-                <form action="success.html" method="post">
+                <form action="success.html" method="post" autocomplete="on">
                     <label for="fullname">Fullname</label> <br/>
                     <input type="text" id="fullname" name="fullname" placeholder="surname name fathername" required />
                     <hr />
                     <label for="email">Email</label> <br/>
-                    <input type="email" id="email" name="email" placeholder="username@sitename.com"  required />
+                    <input type="email" id="email" name="email" placeholder="username@sitename.com"  required autocomplete="off" />
                     <hr />
                     <label for="password">Password</label> <br/>
                     <input type="password" id="password" name="password" placeholder="your passwword"  required />
@@ -34,7 +34,7 @@
                     <input type="tel" id="phone" name="phone" placeholder="Phone Number"  required />
                     <hr />
                     <label for="photo">Select Photo</label> <br/>
-                    <input type="file" id="photo" name="photo" accept="image/*"  required/>
+                    <input multiple type="file" id="photo" name="photo" accept="image/*"  required/>
                     <hr />
                     <input type="submit" value="submit your form" >
                     

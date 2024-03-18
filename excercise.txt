@@ -3,3 +3,31 @@
 
 create html 5 page that has 2 section. 1 section for ipl north indian teams and 1 section for ipl south indian teams. each section should article about each team. article should have team name, it's logo and brief description about his victories streangh and weakness. and aside tag should have coach, captain and vice captain detail and home ground name 
 
+1) create web page for IPL points table using table tag. 
+2) create your resume using only html tag.
+https://images.template.net/wp-content/uploads/2018/11/Free-Basic-Resume-Template2.jpg
+3) create forgot password page. 
+
+
+4) website for recipe in gujarati language
+
+types of web page 
+    1) home page 
+     Logo 
+     Menu 
+        6 links, one link for each category
+     12 recipe (4 recipe in each line)
+        Link 
+            Photo 
+            Name
+    2) Category Page [6 page]
+        each category should have 6 recipe
+        2 design pattern 
+            https://www.theroute2roots.com/category/breakfast/
+            https://gujarati.foodviva.com/paneer-recipes/
+    3) recipe detail page (36 pages)
+        1 design pattern 
+        https://gujarati.foodviva.com/curry-recipes/shahi-paneer-recipe
+
+        also display recipe of the same category 
+        

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         /* internal style */
+         *
+         {
+            margin:0px;
+            padding:0px;
+            letter-spacing: 1px;
+         }
+        ul 
+        {
+            /* border: 1px solid black; */
+            list-style-type: none;
+            display: flex;
+            gap:10px;
+            justify-content: end;
+            padding:20px 10px 20px 0px;
+            background-color: aliceblue;
+        }
+        li 
+        {
+            /* border: 1px solid black;  */
+        }
+        a:link 
+        {
+            font-size:20px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color:black;
+            padding:10px;
+            border-radius: 20px 0px 20px 0px;
+        }
+        a:visited
+        {
+            color:black;
+        }
+        a:hover 
+        {
+            background-color: blue;
+            color:white;
+            box-shadow: 5px 5px 5px gray;
+
+        }
+
+        a:active 
+        {
+            background-color: red;
+            color:yellow;
+        }
+        /* below style only applies to the first li tags' child anchor tag */
+        li:first-child>a:link
+        {
+            background-color: burlywood;
+        }
+        
+        li:last-
+        >a:link
+        {
+            background-color: brown;
+        }
+
+        li:nth-child(4)
+        {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="1_type_selector.html"> Lesson 1</a>
+        </li>
+        <li>
+            <a href="2_universal_selector.html"> Lesson 2</a>
+        </li>
+        <li>
+            <a href="3_inline.html"> Lesson 3</a>
+        </li>
+        <li>
+            <a href="4_class.html"> Lesson 4</a>
+        </li>
+        <li>
+            <a href="http://www.google.com">Google</a>
+        </li>
+    </ul>
+</body>
+</html>

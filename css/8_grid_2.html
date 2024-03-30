@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            margin:0px;
+            padding:0px;
+            letter-spacing: 1px;
+            box-sizing: border-box;
+        }
+        /* id selector */
+        #site 
+        {
+            border: 1px solid black;
+            height:100vh;
+            background-color: blanchedalmond;
+            display: grid;
+            grid-template-rows: 10% 80% 10%;
+            grid-template-columns: 15% 70% 15%;
+            grid-template-areas: 
+            "header header header"
+            "menu content sidebar"
+            "footer footer footer";
+        }
+        #header
+        {
+            grid-area: header;
+            border: 1px solid black;
+        }
+        #menu 
+        {
+            grid-area: menu;
+            border: 1px solid black;
+        }
+        #content 
+        {
+            grid-area: content;
+            border: 1px solid black;
+        }
+        #sidebar 
+        {
+            grid-area: sidebar;
+            border: 1px solid black;
+        }
+        #footer 
+        {
+            grid-area: footer;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="site">
+        <div id="header">the easylearn academy</div>
+        <div id="menu"></div>
+        <div id="content"></div>
+        <div id="sidebar"></div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>

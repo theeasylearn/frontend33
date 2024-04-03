@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Example of confirm dialog</h1>
+    <hr>
+    <p align="right">
+      <a href="success.html" onclick="return confirmCancellation();">Cancel Subsription</a>  
+    </p>
+
+    <script>
+        //create function
+        function confirmCancellation()
+        {
+            var response = confirm("Are you sure, you want to do this?");
+            if(response === true)
+            {
+                alert("Good bye, have nice time, see you again");
+                return true;
+            }
+            else 
+            {
+                alert("Okay, stay here with us");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

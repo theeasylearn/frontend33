@@ -1,0 +1,1 @@
+1) display your own resume using document.write method. resume should be well formated using html tags.

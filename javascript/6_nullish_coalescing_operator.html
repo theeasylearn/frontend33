@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>example of Nullish Coalescing Operator</h1>
+    <hr>
+    <script>
+        var user = null;
+        user = user??prompt("What is your name");
+        document.write("Welcome Mr/miss/mrs ",user);
+        document.write("<br/> Welcome Mr/miss/mrs ",user??prompt("What is your name"));
+    </script>
+</body>
+</html>

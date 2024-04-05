@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Conditional Operator</h1>
+    <hr />
+
+    <script>
+        var age = parseInt(prompt("Enter your age"));
+        // var message = (age>=18) ? "you are allowed to apply for driving Licence, you can also vote":"you are not allowed to apply for driving Licence, you can not do voting";
+        // document.write(message);
+
+        document.write((age >= 18) ? "you are allowed to apply for driving Licence, you can also vote" : "you are not allowed to apply for driving Licence, you can not do voting");
+
+        function getFactorial(number) {
+            // Initialize result to 1
+            let result = 1;
+
+            // Multiply result by numbers from 2 to the given number
+            for (let i = 2; i <= number; i++) {
+                result *= i;
+            }
+
+            return result;
+        }
+        function decimalToBinary(decimalNumber) {
+            // Handle special case when input is 0
+            if (decimalNumber === 0) {
+                return '0';
+            }
+
+            let binary = ''; // Initialize an empty string to store the binary representation
+
+            while (decimalNumber > 0) {
+                // Append the remainder of dividing the decimal number by 2 to the binary string
+                binary = (decimalNumber % 2) + binary;
+
+                // Update the decimal number by dividing it by 2
+                decimalNumber = Math.floor(decimalNumber / 2);
+            }
+
+            return binary;
+        }
+
+        let number = parseInt(prompt("Enter any one number"));
+        document.write("<br/> another example = ",(number%2==0)?decimalToBinary(number):getFactorial(number));
+
+    </script>
+</body>
+
+</html>

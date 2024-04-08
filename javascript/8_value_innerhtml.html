@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Example of value & innerHTML</h1>
+    <h3>Simple Interest Calculator</h3>
+    <form action="" method="post" onsubmit="return calculateInterest();">
+        <table border="1" width="50%" cellpadding="10" align="center">
+            <tr>
+                <td>Enter Amount</td>
+                <td><input type="number" required id="amount" /></td>
+            </tr>
+            <tr>
+                <td>Enter Rate</td>
+                <td><input type="number" required id="rate" /></td>
+            </tr>
+            <tr>
+                <td>Enter Year</td>
+                <td><input type="number" required id="year" /></td>
+            </tr>
+            <tr>
+                <td>Select type</td>
+                <td>
+                    <label for="simple">
+                        <input type="radio" required id="simple" name="type_of_interest" value="1"  />Simple Interest
+                    </label>
+                    <label for="compound">
+                        <input type="radio" required id="compound" name="type_of_interest" value="2"  />Compound Interest
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Calculate" />
+                    <input type="reset" value="Clear all" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><h4 id="interest">Interest will be displayed here</h4></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        
+        function calculateInterest()
+        {
+            let amount = document.getElementById('amount').value;
+            let rate = document.getElementById('rate').value;
+            let year = document.getElementById('year').value;
+
+            console.log(amount,rate,year);
+            let type_of_interest = document.querySelector("input[name='type_of_interest']:checked").value;
+            console.log(type_of_interest);
+            let power = Math.pow(2,5);
+            console.log(power);
+            return false;// to stop reloading web page
+        }
+    </script>
+</body>
+</html>

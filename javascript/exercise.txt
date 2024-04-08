@@ -1,1 +1,6 @@
 1) display your own resume using document.write method. resume should be well formated using html tags.
+2) write javascript code which has 18 buttons and 18 div tags. when user click on specific button it should display specific geetsar in specific div tag.
+
+3) Develop EMI Calculator in javascript. take neccesary input from user usin html.
+
+4) Develop BMI Calculator in javascript. take neccesary input from user usin html.

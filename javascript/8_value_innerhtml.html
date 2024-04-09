@@ -55,9 +55,21 @@
             console.log(amount,rate,year);
             let type_of_interest = document.querySelector("input[name='type_of_interest']:checked").value;
             console.log(type_of_interest);
-            let power = Math.pow(2,5);
-            console.log(power);
-            return false;// to stop reloading web page
+            // let power = Math.pow(2,5);
+            // console.log(power);
+            let result;
+            if(type_of_interest === "1")
+            {
+                result = (amount * rate * year) / 100;
+            }
+            else 
+            {
+                rate = rate / 100;
+                result = (amount * Math.pow(1 + rate / 1, year)) - amount;
+            }
+            result = result.toFixed(2);
+            document.getElementById('interest').innerHTML = result;
+            return false; // to stop reloading web page
         }
     </script>
 </body>

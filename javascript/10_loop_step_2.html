@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>table generator</h1>
+    <form action="" onsubmit="return generateTable();">
+        <table border="1" align="center" width="100%" cellpadding="10">
+            <tr>
+                <td>
+                    <input type="number" id="row" placeholder="Enter row" required />
+                </td>
+                <td>
+                    <input type="number" id="column" placeholder="Enter Column" required />
+                </td>
+                <td>
+                    <input type="text" id="message" placeholder="Enter message" required />
+                </td>
+                <td>
+                    <select id="loop" required>
+                        <option value="">select loop</option>
+                        <option value="1">while loop</option>
+                        <option value="2">for loop</option>
+                        <option value="3">do while loop</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" value="Generate Table" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <table id="mytable" border="1" align="center" width="100%" cellpadding="10">
+
+    </table>
+
+    <script>
+        function generateTable() {
+            //alert('hi');
+            let content = '';
+            let rowcount = 1;
+            let row = parseInt(document.getElementById('row').value);
+            while (rowcount <= row) {
+                content = content + `<tr>
+            <td>the easylearn academy</td>
+            <td>the easylearn academy</td>
+            <td>the easylearn academy</td>
+            <td>the easylearn academy</td>
+            <td>the easylearn academy</td>
+        </tr>`;
+                rowcount = rowcount + 1;
+            }
+
+            document.getElementById('mytable').innerHTML = content;
+
+            return false; //to stop reloading webpage
+        }
+    </script>
+</body>
+
+</html>

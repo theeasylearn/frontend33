@@ -44,10 +44,10 @@
             //alert('hi');
             let content = '';
             let rowcount = 1;
-            let row = parseInt(val('row'));
-            let column = parseInt($val('column'));
+            let row = int('row');
+            let column = int('column');
             let message = val('message');
-            let loop = parseInt(val('loop'));
+            let loop = int('loop');
             if (loop === 1) {
                 while (rowcount <= row) {
                     content += `<tr>`
@@ -91,7 +91,11 @@
                     rowcount=rowcount+1;
                 }while(rowcount<=row);
             }
-            document.getElementById('mytable').innerHTML = content;
+            html('mytable',content);
+            val('row','');
+            val('column','');
+            val('message','');
+            val('loop','');
             return false; //to stop reloading webpage
         }
     </script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Buttons Form</title>
+    <style>
+        .fifty
+        {
+            height:616px;
+            width:384px;
+        }
+        .seventyfive 
+        {
+            height:872px;
+            width:500px;
+        }
+        .hundred 
+        {
+            height:100%;
+            width:100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="myForm">
+        <p>Select the percentage:</p>
+        <input onchange="resizeImage();" type="radio" id="fifty" name="percentage" value="50%" required>
+        <label for="fifty">50%</label><br>
+        <input onchange="resizeImage();" type="radio" id="seventyfive" name="percentage" value="75%" required>
+        <label for="seventyfive">75%</label><br>
+        <input onchange="resizeImage();" type="radio" id="hundred" name="percentage" value="100%" required checked>
+        <label for="hundred">100%</label><br>
+    </form>
+
+    <!-- Image tag to show image -->
+    <img  id="myImage" src="images/bird.png" alt="Image Placeholder" class="hundred" />
+</body>
+    <script>
+        var myImage = document.getElementById('myImage');
+        function resizeImage()
+        {
+            //get checked radio button value
+            let percentage = document.querySelector("input[name='percentage']:checked").value;
+            
+            if(percentage === "50%")
+            {
+                myImage.className = "fifty";
+            }
+            else if(percentage === "75%")
+            {
+                myImage.className = "seventyfive";
+            }
+            else if(percentage === "100%")
+            {
+                myImage.className = "hundred";
+            }
+        }
+        
+      
+
+        //event handling 2nd technique;
+        myImage.ondblclick = function(){
+            let height = myImage.clientHeight;
+            let width = myImage.clientWidth;
+            
+            height = parseInt(height * 0.90);
+            width = parseInt(width * 0.90);
+            //alert(height + " " + width);
+            myImage.style.height = height + 'px';
+            myImage.style.width = width + 'px';
+        };
+   </script>
+</html>

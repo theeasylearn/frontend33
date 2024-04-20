@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>1st method to create object</h1>
+    <table border="1" cellpadding="10" id="output">
+
+    </table>
+
+    <script>
+        //1st method to create object variable
+        let person = {
+            //property variable
+            name: "Jaymin Vegad",
+            dob: "2001-10-24",
+            gender: true,
+            log: function () {
+                console.log(this.name, this.dob, this.gender);
+            },
+            add: function () {
+                let message = (this.gender === true) ? "Male":"Female";
+                //local variable
+                let content = `
+                    <tr>
+                    <td>Name</td>
+                    <td>${this.name}</td>
+                    </tr>
+                    <tr>
+                    <td>Date of birth</td>
+                    <td>${this.dob}</td>
+                    </tr>
+                    <tr>
+                    <td>Gender</td>
+                    <td>${message}</td>
+                </tr>`;
+                document.getElementById('output').innerHTML = content;
+            }
+        }
+
+        //call method of person object
+        person.log(); //object-variable-name.method();
+        person.add();
+
+        person.name = "Vidhi"; ////object-variable-name.property = value;
+        person.gender = false; ////object-variable-name.property = value;
+
+        person.log(); //object-variable-name.method();
+        person.add();
+    </script>
+</body>
+
+</html>

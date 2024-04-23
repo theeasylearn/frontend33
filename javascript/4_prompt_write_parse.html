@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Prompt, Write, Parse Method</h1>
+    <hr/>
+    <h3>Basic Arthimatic Calculator</h3>
+    <hr/>
+    <script>
+        //accept input from user 
+        var num1 = prompt("Enter first number",0);
+        var num2 = prompt("Enter second number",0);
+
+        //convert input integer
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+
+        //process
+        var add = num1 + num2;
+        var sub = num1 - num2;
+        var mul = num1 * num2;
+        var div = num1 / num2;
+
+        //display result
+        document.write(`<b>addition </b> ` + add);
+        document.write(`<br/> <b>subtraction </b> ` + sub);
+        document.write("<br/> <b>multiplication </b> " + mul);
+        document.write("<br/> <b>Division </b> " + div);
+    </script>
+</body>
+</html>

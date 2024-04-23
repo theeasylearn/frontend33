@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: block;
+            border: 1px solid black;
+            width: 50%;
+            margin: auto;
+            font-size: 36px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 align="center">Digits to word converer</h2>
+    <form action="#" method="post" align="center">
+        <label for="amount">Amount:</label><br>
+        <input type="number" id="amount" name="amount" min="0" required /><br><br>
+        <h5 id="output">one two three</h5>
+
+    </form>
+
+    <script>
+        var amount_input = document.getElementById('amount'); // store reference of html tag in variable
+
+        //3rd technique to handle event
+        amount.addEventListener("input", function () {
+            //console.log(amount.value);
+            let amount = parseInt(amount_input.value);
+            let reminder;
+            let words = '';
+            while (amount > 0) {
+                reminder = amount % 10;
+                console.log(reminder);
+                amount = parseInt(amount / 10);
+                console.log(amount)
+                if (reminder === 1)
+                    words = "one " + words;
+                else if (reminder === 2)
+                    words = "two " + words;
+                else if (reminder === 3)
+                    words = "three " + words;
+                else if (reminder === 4)
+                    words = "four " + words;
+                else if (reminder === 5)
+                    words = "five " + words;
+                else if (reminder === 6)
+                    words = "six " + words;
+                else if (reminder === 7)
+                    words = "seven " + words;
+                else if (reminder === 8)
+                    words = "eight " + words;
+                else if (reminder === 9)
+                    words = "nine " + words;
+                else if (reminder === 0)
+                    words = "zero " + words;
+            }
+            console.log(words);
+            document.getElementById('output').innerHTML = words;
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>2nd method to create object</h1>
+    <table width="80%" border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Dob</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody id="output">
+
+        </tbody>
+    </table>
+
+    <script>
+        //2nd method to create object variable
+        let person = new Object({
+        //property variable
+        name: "",
+        dob: "",
+        gender: null,
+        log: function () {
+        console.log(this.name, this.dob, this.gender);
+        },
+        add: function () {
+        let message = (this.gender === true) ? "Male" : "Female";
+        //local variable
+        let content = `
+        <tr>
+            <td>${this.name}</td>
+            <td>${this.dob}</td>
+            <td>${message}</td>
+        </tr>`;
+        document.getElementById('output').innerHTML += content;
+        }
+        })
+
+        //create object variable
+        // let object-variable-name = object
+        let p1 = person
+        p1.name = "Ankit Patel";
+        p1.dob = "1985-07-12";
+        p1.gender = true;
+        p1.add();
+
+        let p2 = person;
+        p2.name = "Mahesh";
+        p2.dob = "2000-09-20";
+        p2.gender = true;
+        p2.add();
+
+        let p3 = person;
+        p3.name = "Nayan";
+        p3.dob = "2001-11-25";
+        p3.gender = true;
+        p3.add();
+        </script>
+</body>
+
+</html>

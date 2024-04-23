@@ -1,0 +1,70 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: 1px;
+}
+body 
+{
+    background-color: beige;
+}
+/* class selctor */
+.kids
+{
+    border: 3px dotted brown;
+    font-family: cursive;
+    background-color: lemonchiffon;
+    color:red;
+    text-align: justify;
+    padding:10px;
+}
+.kids>header 
+{
+    background-color: red;
+    color:lemonchiffon;
+    text-align: center;
+    padding:10px 0px; 
+    font-size: large;
+}
+.science
+{
+    border: 5px double brown;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color:darkkhaki;
+    color:white;
+    text-align: justify;
+    padding:10px;
+}
+.science>header 
+{
+    background-color: white;
+    color:darkkhaki;
+    text-align: center;
+    padding:10px 0px; 
+    font-size: large;
+}
+.science>img 
+{
+    border-radius: 10%;
+}
+.kids>img 
+{
+    border-radius: 100%;
+}
+.science>img, .kids>img
+{
+    height:200px;
+    width:200px;
+    
+    /* display image in ceenter */
+    display: block;
+    margin:auto;
+
+    margin-top: 10px;
+    text-align: center;
+}
+.science>p, .kids>p  
+{
+    text-indent: 50px;
+    font-size: 20px;
+}

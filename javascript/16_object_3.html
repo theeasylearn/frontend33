@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>3rd technique to create object</h1>
+    <hr>
+    <table border="1" align="center" cellpadding="5">
+        <form action="" onsubmit="return AddProduct();">
+            <tr>
+                <td></td>
+                <td><input type="text" id="name" required /></td>
+                <td><input type="number" id="price" required /></td>
+                <td><input type="number" id="quantity" required /></td>
+                <td><input type="number" id="tax" required /></td>
+                <td><input type="submit" value="Add" /></td>
+            </tr>
+        </form>
+        <thead>
+
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Tax Rate</th>
+                <th>Total(with tax)</th>
+            </tr>
+        </thead>
+        <tbody id="output">
+
+        </tbody>
+    </table>
+
+    <script>
+        //global variable
+        var count = 1;
+        var output = document.getElementById('output');
+        var pname = document.getElementById('name');
+        var price = document.getElementById('price');
+        var tax = document.getElementById('tax');
+        var quantity = document.getElementById('quantity');
+
+        //3rd technique to create object
+        function Product(nm, pr, qty, tax) {
+                this.name = nm,
+                this.price = pr,
+                this.quantity = qty,
+                this.tax = tax,
+                this.total = this.price * this.quantity,
+                this.total += this.total * (this.tax / 100),
+
+                this.add = function () {
+                    var content = `<tr>
+                <td>${count}</td>
+                <td>${this.name}</td>
+                <td>${this.price}</td>
+                <td>${this.quantity}</td>
+                <td>${this.tax}</td>
+                <td>${this.total}</td>
+            </tr>`;
+                    output.innerHTML += content;
+                    count = count + 1;
+                }
+        }
+
+        function AddProduct() {
+
+            //create object variable
+            let p1 = new Product(pname.value, price.value, quantity.value, tax.value);
+            p1.add();
+            pname.value = "";
+            price.value = "";
+            quantity.value = "";
+            tax.value = "";
+            return false;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

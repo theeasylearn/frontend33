@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result 
+        {
+            display: grid;
+            grid-template-columns: 10% 40% 16% 16% 18%;
+            grid-template-rows:repeat(6,50px);
+            border: 1px solid black;
+        }
+        #result>div 
+        {
+            border: 1px solid black;
+            font-size: large;
+        }
+        #result>div:nth-child(-n+5)
+        {
+            background-color: gainsboro;
+            text-align: center;
+            font-weight: bold;
+        }
+        #result>div:nth-last-child(-n+5)
+        {
+            background-color: gainsboro;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grid Example</h1>
+    <article>
+            <header>Student Result sheet</header>
+            <div id="result">
+                <div>Sr No</div>
+                <div>Name</div>
+                <div>HTML</div>
+                <div>CSS</div>
+                <div>JAVASCRIPT</div>
+
+                <div> 1</div>
+                <div> John Doe</div>
+                <div> 85</div>
+                <div> 75</div>
+                <div> 90</div>
+
+                <div> 2</div>
+                <div> Jane Smith</div>
+                <div> 90</div>
+                <div> 80</div>
+                <div> 85</div>
+
+                <div> 3</div>
+                <div> David Lee</div>
+                <div> 75</div>
+                <div> 70</div>
+                <div> 80</div>
+
+                <div> 4</div>
+                <div> Sarah Patel</div>
+                <div> 80</div>
+                <div> 85</div>
+                <div> 75</div>
+
+                <div> 5</div>
+                <div> Michael Singh</div>
+                <div> 95</div>
+                <div> 90</div>
+                <div> 95</div>
+
+                <div></div>
+                <div></div>
+                <div>450</div>
+                <div>500</div>
+                <div>600</div>
+            </div>
+    </article>
+</body>
+</html>

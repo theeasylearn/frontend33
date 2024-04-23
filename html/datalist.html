@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Example of datalist</h1>
+    <form action="">
+        <table border="1" width="80%" align="center">
+            <tr>
+                <td>Enter source</td>
+                <td>
+                    <input list="city" type="text" name="source" id="source" required>
+                </td>
+                <td>Enter Destination</td>
+                <td>
+                    <input list="city" type="text" name="destination" id="destination" />
+                </td>
+                <td>
+                    <input type="submit" value="Search Bus" />
+                </td>
+            </tr>
+        </table>
+        <datalist id="city">
+            <option value="bhavnagar" />
+            <option value="bhatinda" />
+            <option value="bharuch" />
+            <option value="bhanwad" />
+            <option value="bhopal" />
+            <option value="nagpur" />
+            <option value="solapur" />
+            <option value="kanpur" />
+        </datalist>
+    </form>
+</body>
+</html>

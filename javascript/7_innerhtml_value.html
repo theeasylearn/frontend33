@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>example of innerHTML</h1>
+    <table align="center" cellpadding="5" width="50%" border="1">
+        <tr>
+            <td>
+                <input type="button" value="get Date" onclick="showCurrentDate();" />
+            </td>
+            <td>
+                <input type="button" value="get time" onclick="showCurrentTime();" />
+            </td>
+        </tr>
+        <tr>
+            <td id="currentdate"></td>
+            <td id="currenttime"></td>
+        </tr>
+    </table>
+    <script>
+        //create user defined function 
+        function showCurrentDate() {
+            //show current date
+            let date = new Date(); //Date is Built in class used to get current date & time
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            let weekday = date.getDay();
+            console.log(day, month, year, weekday);
+            let dayname = null;
+            if (weekday === 1)
+                dayname = "Monday";
+            else if (weekday === 2)
+                dayname = "Tuesday";
+            else if (weekday === 3)
+                dayname = "Wednesday";
+            else if (weekday === 4)
+                dayname = "Thursday";
+            else if (weekday === 5)
+                dayname = "Friday";
+            else if (weekday === 6)
+                dayname = "Saturday";
+            else
+                dayname = "Sunday";
+            //create variable that has different part of the day
+            let wholedate = dayname + " " + day + "/" + month + "/" + year;
+            console.log(wholedate);
+            //set whole date into td whose id is currentdate
+            document.getElementById('currentdate').innerHTML = `<h3>${wholedate}</h3>`;
+        }
+    
+        function showCurrentTime()
+        {
+            let date = new Date();
+            let hour = date.getHours();
+            let minute = date.getMinutes();
+            let seconds = date.getSeconds();
+
+            console.log(hour,minute,seconds);
+            let fulltime = hour + ":" + minute + ":" + seconds;
+            console.log(fulltime);
+            document.getElementById('currenttime').innerHTML = fulltime;
+        }
+    </script>
+</body>
+
+</html>

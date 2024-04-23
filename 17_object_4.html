@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <h1>4th (es6) way to create object</h1>
+     <hr>
+     <table align="center" width="80%" cellpadding="10" border="2">
+          <thead>
+               <tr>
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Tax</th>
+                    <th>Total</th>
+                    <th>Delete</th>
+               </tr>
+          </thead>
+          <tbody id="output">
+
+
+          </tbody>
+     </table>
+
+     <script>
+          var output = document.getElementById('output');
+          var count=0;
+          //create es6 way class
+          class Product {
+               constructor(name, price, quantity, tax) {
+                    console.log('constructor called...');
+                    //create property variable
+                    this.name = name;
+                    this.price = price;
+                    this.quantity = quantity;
+                    this.tax = tax;
+                    this.total = (this.price * this.quantity);
+                    this.total += (this.total * this.tax) / 100;
+                    count++;
+               }
+               DeleteRow()
+               {
+                    alert('Delete button clicked...');
+               }
+               AddRow() 
+               {
+                    //object destructring
+                    let {name,price,quantity,tax,total} = this;
+                    let content = 
+                    `<tr>
+                         <td>${count}</td>
+                         <td>${name}</td>
+                         <td>${price}</td>
+                         <td>${quantity}</td>
+                         <td>${tax}</td>
+                         <td>${total}</td>
+                         <td align='center'>
+                              <img onclick='{this.DeleteRow()}' title='click to delete' src='images/delete.png' />
+                         </td>
+                    </tr>`;
+                    output.innerHTML += content;
+               }
+          }
+          //create object variable using class
+          var p1 = new Product("book",100,10,5);
+          p1.AddRow();
+
+          var p2 = new Product("Pencil",100,10,5);
+          p2.AddRow();
+
+          var p3 = new Product("BallPen",100,10,5);
+          p3.AddRow();
+     </script>
+</body>
+
+</html>

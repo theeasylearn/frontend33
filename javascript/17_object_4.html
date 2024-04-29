@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          .img-link {
+               cursor: pointer;
+          }
+     </style>
+</head>
+
+<body>
+     <h1>4th (es6) way to create object</h1>
+     <hr>
+     <table align="center" width="80%" cellpadding="10" border="2">
+          <thead>
+               <tr>
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Tax</th>
+                    <th>Total</th>
+                    <th>Delete</th>
+               </tr>
+               <form action="" onsubmit="return AddProduct();">
+                    <tr>
+                         <td>Product</td>
+                         <td><input type='text' id='name' placeholder="Name" required /></td>
+                         <td><input type='number' id='price' placeholder="Price" required /></td>
+                         <td><input type='number' id='quantity' placeholder="quantity" required /></td>
+                         <td><input type='number' id='tax' placeholder="Tax" required /></td>
+                         <td colspan="2" align="center"><input type="submit" value="Add Product" /></td>
+                    </tr>
+               </form>
+          </thead>
+          <tbody id="output">
+
+
+          </tbody>
+     </table>
+
+     <script>
+          var output = document.getElementById('output');
+          var count = 0;
+          //create es6 way class
+          class Product {
+               constructor(name, price, quantity, tax) {
+                    console.log('constructor called...');
+                    //create property variable
+                    this.name = name;
+                    this.price = price;
+                    this.quantity = quantity;
+                    this.tax = tax;
+                    this.total = (this.price * this.quantity);
+                    this.total += (this.total * this.tax) / 100;
+                    count++;
+               }
+               DeleteRow() {
+                    alert('Delete button clicked...');
+               }
+               AddRow() {
+                    //object destructring
+                    let { name, price, quantity, tax, total } = this;
+                    let content =
+                         `<tr>
+                         <td>${count}</td>
+                         <td>${name}</td>
+                         <td>${price}</td>
+                         <td>${quantity}</td>
+                         <td>${tax}</td>
+                         <td>${total}</td>
+                         <td align='center'>
+                              <img class='img-link' title='click to delete' src='images/delete.png' onclick='this.parentElement.parentElement.remove()' />
+                         </td>
+                    </tr>`;
+                    output.innerHTML += content;
+               }
+          }
+          function AddProduct() {
+               var name = document.getElementById('name');
+               var price = document.getElementById('price');
+               var quantity = document.getElementById('quantity');
+               var tax = document.getElementById('tax');
+               //create object variable using class
+               var p1 = new Product(name.value,price.value,quantity.value,tax.value);
+               p1.AddRow();
+               //clear all inpu
+               name.value = "";
+               price.value = "";
+               quantity.value = "";
+               tax.value = "";
+               
+               return false;
+          }
+     </script>
+</body>
+
+</html>

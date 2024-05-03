@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>filter and map method</h1>
+    <hr>
+    <table align="center" border="2" width="80%" cellpadding="10">
+        <thead>
+            <form method="post" onsubmit="return SearchBus();">
+                <tr>
+                    <th colspan="2">
+                        <input type="text" name="source" id="source" placeholder="From" required />
+                    </th>
+                    <th colspan="2">
+                        <input type="text" name="destination" id="destination" placeholder="To" required />
+                    </th>
+                    <th>
+                        <input type="submit" value="Search" />
+                    </th>
+                </tr>
+            </form>
+            <tr>
+                <th>No</th>
+                <th>From</th>
+                <th>To</th>
+                <th>time</th>
+                <th>bus type</th>
+            </tr>
+
+        </thead>
+        <tbody id='output'>
+
+        </tbody>
+    </table>
+</body>
+<script>
+    var routes = [
+        { from: 'bhavnagar', to: 'surat', busType: 'AC', departureTime: '08:00 AM' },
+        { from: 'rajkot', to: 'baroda', busType: 'non AC', departureTime: '09:30 AM' },
+        { from: 'ahmedabad', to: 'jamnagar', busType: 'AC', departureTime: '11:15 AM' },
+        { from: 'baroda', to: 'bhavnagar', busType: 'non AC', departureTime: '01:00 PM' },
+        { from: 'surat', to: 'rajkot', busType: 'AC', departureTime: '02:45 PM' },
+        { from: 'jamnagar', to: 'ahmedabad', busType: 'non AC', departureTime: '04:30 PM' },
+        { from: 'bhavnagar', to: 'rajkot', busType: 'AC', departureTime: '06:15 PM' },
+        { from: 'surat', to: 'baroda', busType: 'non AC', departureTime: '07:45 PM' },
+        { from: 'rajkot', to: 'jamnagar', busType: 'AC', departureTime: '09:30 PM' },
+        { from: 'baroda', to: 'ahmedabad', busType: 'non AC', departureTime: '11:15 PM' },
+        { from: 'ahmedabad', to: 'bhavnagar', busType: 'AC', departureTime: '01:00 AM' },
+        { from: 'jamnagar', to: 'rajkot', busType: 'non AC', departureTime: '02:45 AM' },
+        { from: 'baroda', to: 'surat', busType: 'AC', departureTime: '04:30 AM' },
+        { from: 'bhavnagar', to: 'jamnagar', busType: 'non AC', departureTime: '06:15 AM' },
+        { from: 'rajkot', to: 'ahmedabad', busType: 'AC', departureTime: '07:45 AM' },
+        { from: 'ahmedabad', to: 'baroda', busType: 'non AC', departureTime: '09:30 AM' },
+        { from: 'surat', to: 'bhavnagar', busType: 'AC', departureTime: '11:15 AM' },
+        { from: 'jamnagar', to: 'rajkot', busType: 'non AC', departureTime: '01:00 PM' },
+        { from: 'baroda', to: 'surat', busType: 'AC', departureTime: '02:45 PM' },
+        { from: 'rajkot', to: 'bhavnagar', busType: 'non AC', departureTime: '04:30 PM' },
+        { from: 'ahmedabad', to: 'surat', busType: 'AC', departureTime: '06:15 PM' },
+        { from: 'baroda', to: 'rajkot', busType: 'non AC', departureTime: '07:45 PM' },
+        { from: 'bhavnagar', to: 'baroda', busType: 'AC', departureTime: '09:30 PM' },
+        { from: 'jamnagar', to: 'bhavnagar', busType: 'non AC', departureTime: '11:15 PM' },
+        { from: 'surat', to: 'ahmedabad', busType: 'AC', departureTime: '01:00 AM' },
+        { from: 'rajkot', to: 'baroda', busType: 'non AC', departureTime: '02:45 AM' },
+        { from: 'bhavnagar', to: 'baroda', busType: 'AC', departureTime: '04:30 AM' },
+        { from: 'jamnagar', to: 'rajkot', busType: 'non AC', departureTime: '06:15 AM' },
+        { from: 'surat', to: 'bhavnagar', busType: 'AC', departureTime: '07:45 AM' },
+        { from: 'baroda', to: 'rajkot', busType: 'non AC', departureTime: '09:30 AM' },
+        { from: 'ahmedabad', to: 'surat', busType: 'AC', departureTime: '11:15 AM' },
+        { from: 'rajkot', to: 'bhavnagar', busType: 'non AC', departureTime: '01:00 PM' },
+        { from: 'baroda', to: 'jamnagar', busType: 'AC', departureTime: '02:45 PM' },
+        { from: 'bhavnagar', to: 'surat', busType: 'non AC', departureTime: '04:30 PM' },
+        { from: 'surat', to: 'rajkot', busType: 'AC', departureTime: '06:15 PM' },
+    ]
+    function SearchBus() {
+        let source = document.getElementById('source');
+        let destination = document.getElementById('destination');
+
+        let output = document.getElementById('output');
+        //list filter
+        let newlist = routes.filter(function (item) {
+            if (item.from === source.value && item.to === destination.value)
+                return item;
+        })
+        output.innerHTML = '';
+        if (newlist.length === 0) {
+            output.innerHTML = `<tr><td colspan='5' align='center'><font color'red' size='+1'>no route found</font></td></tr>`;
+        }
+        else {
+
+            newlist.map(function (item, index) {
+                let content = `<tr>
+                    <td>${index + 1}</td>
+                    <td>${item.from}</td>
+                    <td>${item.to}</td>
+                    <td>${item.departureTime}</td>
+                    <td>${item.busType}</td>
+                    </tr>`;
+                output.innerHTML += content;
+
+            });
+        }
+        return false;
+    }
+</script>
+
+</html>

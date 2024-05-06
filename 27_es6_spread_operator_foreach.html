@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ES6 Spread Operator & foreach loop </h1>
+    <hr/>
+    <p>use console to check output</p>
+    <table border="1" width="50%">
+        <thead>
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Bus Type</th>
+                <th>Depature Time</th>
+            </tr>
+        </thead>
+        <tbody id="output">
+          
+        </tbody>
+    </table>
+    <script>
+        //array of object
+        var routes =  [
+            { from: 'bhavnagar', to: 'surat', busType: 'AC', departureTime: '08:00 AM' },
+            { from: 'rajkot', to: 'baroda', busType: 'non AC', departureTime: '09:30 AM' },
+            { from: 'ahmedabad', to: 'jamnagar', busType: 'AC', departureTime: '11:15 AM' }
+        ];
+        //console.log(routes);
+
+        var newRoute = {
+            from: 'gandhinagar', to: 'surat', busType: 'AC', departureTime: '06:15 AM'
+        }
+        //console.log(newRoute);
+        //add new object into array
+        routes = [...routes,newRoute];
+        var output = document.getElementById('output');
+       // display using foreach loop 
+       routes.map(function(item){
+            console.log(item);
+            let temp='';
+                for(let key in item)
+                {
+                    temp+= `<td>${item[key]}</td>`;
+                }
+            output.innerHTML += `<tr>${temp}</tr>`;
+       }); 
+
+    </script>
+</body>
+</html>

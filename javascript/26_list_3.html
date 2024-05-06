@@ -84,7 +84,8 @@
         let output = document.getElementById('output');
         //list filter
         let newlist = routes.filter(function (item) {
-            if (item.from === source.value && item.to === destination.value)
+            let {from,to,departureTime,busType} = item;
+            if (from === source.value && to === destination.value)
                 return item;
         })
         output.innerHTML = '';
@@ -94,12 +95,14 @@
         else {
 
             newlist.map(function (item, index) {
+                //object destructure (we have created variables using object properties)
+                let {from,to,departureTime,busType} = item;
                 let content = `<tr>
                     <td>${index + 1}</td>
-                    <td>${item.from}</td>
-                    <td>${item.to}</td>
-                    <td>${item.departureTime}</td>
-                    <td>${item.busType}</td>
+                    <td>${from}</td>
+                    <td>${to}</td>
+                    <td>${departureTime}</td>
+                    <td>${busType}</td>
                     </tr>`;
                 output.innerHTML += content;
 

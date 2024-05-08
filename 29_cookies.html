@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            width: 50%;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="button"],
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>working with cookies</h1>
+    <hr>
+    <form id="cookieForm" onsubmit="return createCookie()">
+        <label for="cookieName">Cookie Name:</label>
+        <input type="text" id="cookieName" name="cookieName" required>
+        <label for="cookieValue">Cookie Value:</label>
+        <input type="text" id="cookieValue" name="cookieValue" required>
+        <input type="submit" value="create cookie">
+        <input type="button" value="fetch cookie" onclick="fetchCookie()">
+        <input type="button" value="delete cookie" onclick="deleteCookie()">
+    </form>
+
+    <!-- import cookies.js -->
+    <script src="cookies.js"></script>
+    <script>
+        //create variables 
+        var cookieName = document.getElementById('cookieName');
+        var cookiesValue = document.getElementById('cookieValue');
+
+        //arrow function
+        createCookie = () => {
+            setCookie(cookieName.value, cookiesValue.value);
+            cookieName.value = "";
+            cookiesValue.value = "";
+            alert('cookies has been created successfully');
+            return false; //it is required to stop refreshing web page
+        }
+
+        //
+        fetchCookie = () => {
+            //check input is given or not
+            let name = cookieName.value;
+            if (name === '')
+                alert('please give cookie name');
+            else {
+                let value = getCookie(name);
+                if (value === '')
+                    alert('no such cookies')
+                else
+                    cookiesValue.value = value;
+            }
+        }
+        deleteCookie = () => {
+            let name = cookieName.value;
+            if (name === '')
+                alert('please give cookie name');
+            else {
+                let value = getCookie(name);
+                if (value === '')
+                    alert('no such cookies')
+                else {
+                    setCookie(cookieName.value, '', -100);
+                    alert('cookies has been deleted');
+                    cookieName.value = "";
+                    cookiesValue.value = "";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

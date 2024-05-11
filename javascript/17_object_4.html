@@ -5,11 +5,6 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Document</title>
-     <style>
-          .img-link {
-               cursor: pointer;
-          }
-     </style>
 </head>
 
 <body>
@@ -26,16 +21,6 @@
                     <th>Total</th>
                     <th>Delete</th>
                </tr>
-               <form action="" onsubmit="return AddProduct();">
-                    <tr>
-                         <td>Product</td>
-                         <td><input type='text' id='name' placeholder="Name" required /></td>
-                         <td><input type='number' id='price' placeholder="Price" required /></td>
-                         <td><input type='number' id='quantity' placeholder="quantity" required /></td>
-                         <td><input type='number' id='tax' placeholder="Tax" required /></td>
-                         <td colspan="2" align="center"><input type="submit" value="Add Product" /></td>
-                    </tr>
-               </form>
           </thead>
           <tbody id="output">
 
@@ -45,7 +30,7 @@
 
      <script>
           var output = document.getElementById('output');
-          var count = 0;
+          var count=0;
           //create es6 way class
           class Product {
                constructor(name, price, quantity, tax) {
@@ -59,14 +44,16 @@
                     this.total += (this.total * this.tax) / 100;
                     count++;
                }
-               DeleteRow() {
+               DeleteRow()
+               {
                     alert('Delete button clicked...');
                }
-               AddRow() {
+               AddRow() 
+               {
                     //object destructring
-                    let { name, price, quantity, tax, total } = this;
-                    let content =
-                         `<tr>
+                    let {name,price,quantity,tax,total} = this;
+                    let content = 
+                    `<tr>
                          <td>${count}</td>
                          <td>${name}</td>
                          <td>${price}</td>
@@ -74,28 +61,21 @@
                          <td>${tax}</td>
                          <td>${total}</td>
                          <td align='center'>
-                              <img class='img-link' title='click to delete' src='images/delete.png' onclick='this.parentElement.parentElement.remove()' />
+                              <img onclick='{this.DeleteRow()}' title='click to delete' src='images/delete.png' />
                          </td>
                     </tr>`;
                     output.innerHTML += content;
                }
           }
-          function AddProduct() {
-               var name = document.getElementById('name');
-               var price = document.getElementById('price');
-               var quantity = document.getElementById('quantity');
-               var tax = document.getElementById('tax');
-               //create object variable using class
-               var p1 = new Product(name.value,price.value,quantity.value,tax.value);
-               p1.AddRow();
-               //clear all inpu
-               name.value = "";
-               price.value = "";
-               quantity.value = "";
-               tax.value = "";
-               
-               return false;
-          }
+          //create object variable using class
+          var p1 = new Product("book",100,10,5);
+          p1.AddRow();
+
+          var p2 = new Product("Pencil",100,10,5);
+          p2.AddRow();
+
+          var p3 = new Product("BallPen",100,10,5);
+          p3.AddRow();
      </script>
 </body>
 

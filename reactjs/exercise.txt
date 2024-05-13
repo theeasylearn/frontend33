@@ -1,0 +1,4 @@
+1) create your own resume using html & css
+2) display 10 mutiplication table using html table tr and td tag.
+3) display day and night choghadiya using html and css. without using table tag 
+    https://www.astrosage.com/chogadia.asp

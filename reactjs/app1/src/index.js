@@ -1,18 +1,40 @@
+/* importing required react components */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let num1 = 30;
-let num2 = 7;
-var page = (
-    <div>
-        <h1 className='heading'>3rd example in Reactjs</h1>
-        <ul>
-            <li>addition of {num1} and {num2}  = {num1 + num2}</li>
-            <li>subtraction of {num1} and {num2}  = {num1 - num2}</li>
-            <li>multiplication of {num1} and {num2}  = {num1 * num2}</li>
-            <li>division of {num1} and {num2}  = {(num1 / num2).toFixed(2)}</li>
-        </ul>
+//create javascript object 
+let person = {
+    name:'Diya patel',
+    dob: '2022-12-15',
+    gender:false,
+    photo: 'https://picsum.photos/200'
+};
+function getMaleFemale(gender)
+{
+    if(gender===true)
+        return <>Male</>
+    else 
+        return <>Female</>
+}
+//create function 
+function displayPerson(person)
+{
+    return (<div className='container'>
+    <div className="row">
+        <div className="col-3">
+            <div className="card">
+                <img src={person.photo} alt="" className="card-img-top" />
+                <div className="card-body">
+                    <h4>{person.name}</h4>
+                    <hr />
+                    BirthDate : {person.dob}
+                    <br />
+                    Gender : {getMaleFemale(person.gender)} 
+
+                </div>
+            </div>
+        </div>
     </div>
-)
-root.render(page);
+</div>)
+}
+root.render(displayPerson(person));

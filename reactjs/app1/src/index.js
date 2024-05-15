@@ -2,39 +2,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-//create javascript object 
-let person = {
-    name:'Diya patel',
-    dob: '2022-12-15',
-    gender:false,
-    photo: 'https://picsum.photos/200'
-};
-function getMaleFemale(gender)
+function updateDateTime()
 {
-    if(gender===true)
-        return <>Male</>
-    else 
-        return <>Female</>
-}
-//create function 
-function displayPerson(person)
-{
-    return (<div className='container'>
-    <div className="row">
-        <div className="col-3">
-            <div className="card">
-                <img src={person.photo} alt="" className="card-img-top" />
-                <div className="card-body">
-                    <h4>{person.name}</h4>
-                    <hr />
-                    BirthDate : {person.dob}
-                    <br />
-                    Gender : {getMaleFemale(person.gender)} 
-
+    //create date class object
+    let now = new Date();
+    let output = (
+        <div className='container'>
+            <div className="row">
+                <div className="col-12">
+                    <table>
+                        <tr>
+                            <td>Hour</td>
+                            <td>Minute</td>
+                            <td>Second</td>
+                        </tr>
+                        <tr>
+                            <td>{now.getHours()}</td>
+                            <td>{now.getMinutes()}</td>
+                            <td>{now.getSeconds()}</td>
+                        </tr>
+                        <tr>
+                            <td>Day</td>
+                            <td>Month</td>
+                            <td>Year</td>
+                        </tr>
+                        <tr>
+                            <td>{now.getDate()}</td>
+                            <td>{now.getMonth()+1}</td>
+                            <td>{now.getFullYear()}</td>
+                        </tr>
+                        
+                    </table>
                 </div>
             </div>
         </div>
-    </div>
-</div>)
+    )
+    root.render(output);
 }
-root.render(displayPerson(person));
+// updateDateTime();
+const SECOND = 1;
+const INTERVAL_IN_SECONDS = SECOND * 1000;
+setInterval(updateDateTime,INTERVAL_IN_SECONDS);

@@ -16,7 +16,7 @@ function getMaleFemale(gender)
     else 
         return <>Female</>
 }
-//create function 
+//create function components
 function displayPerson(person)
 {
     return (<div className='container'>

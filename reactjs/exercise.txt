@@ -9,5 +9,6 @@
 
 7) create bootstrap design to display IPL team name, logo, home ground, captain, no of trophy wins(along with years) using functions with parameters.  team name, logo, home ground, captain, no of trophy wins should be variables of object passed in function. 
 
-
+8) create reactjs function components to display menu, 4 touriest destinations in gujarat and footer.
+    https://holidayz.makemytrip.com/holidays/india/search?dest=Kashmir
 

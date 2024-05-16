@@ -3,44 +3,33 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //create functional Component 
-function SiteHeader() {
-    return (<nav className="navbar navbar-expand-xl navbar-light bg-light shadow">
-        <div className="container-fluid">
-            <a className="navbar-brand" href="#">The easylearn academy</a>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon" />
-            </button>
-            <div className="collapse navbar-collapse show" id="navbarBasic">
-                <ul className="navbar-nav me-auto mb-2 mb-xl-0">
-                    <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
-                    </li>
-
-                </ul>
-
-            </div>
-        </div>
-    </nav>);
-}
-function SiteFooter() {
-    return (<div className="container-fluid text-bg-dark mt-5">
-        <div className="row">
-            <div className="col-12 text-center">
-                <p>Developed By : Frontend 33 group</p>
-            </div>
-        </div>
-    </div>);
-}
 function Page() {
     // responsive Menu
     // 4 products 
     // footer 
     return (<>
         {/* responsive menu  start */}
-        <SiteHeader />
+        <nav className="navbar navbar-expand-xl navbar-light bg-light shadow">
+            <div className="container-fluid">
+                <a className="navbar-brand" href="#">The easylearn academy</a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon" />
+                </button>
+                <div className="collapse navbar-collapse show" id="navbarBasic">
+                    <ul className="navbar-nav me-auto mb-2 mb-xl-0">
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Link</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        
         {/* responsive menu end */}
 
         {/*  products start */}
@@ -111,13 +100,19 @@ function Page() {
                         </div>
                     </div>
 
-                </div>
+                </div>  
             </div>
         </div>
         {/*  products end */}
 
         {/* footer start */}
-        <SiteFooter />
+            <div className="container-fluid text-bg-dark mt-5">
+                <div className="row">
+                    <div className="col-12 text-center">
+                        <p>Developed By : Frontend 33 group</p>
+                    </div>
+                </div>
+            </div>
         {/* footer end */}
     </>);
 }

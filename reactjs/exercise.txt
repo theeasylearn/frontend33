@@ -12,3 +12,6 @@
 8) create reactjs function components to display menu, 4 touriest destinations in gujarat and footer.
     https://holidayz.makemytrip.com/holidays/india/search?dest=Kashmir
 
+9) create reactjs function components to display Food Dish just like zomato/swiggy. there should be 32 food dishes. it should be stored into array of object. and should be displayed using map function
+
+10) create reactjs function components to display news just like https://www.divyabhaskar.co.in/. there should be 24 news. it should be stored into array of object. and should be displayed using map function

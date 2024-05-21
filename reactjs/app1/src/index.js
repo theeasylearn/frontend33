@@ -2,60 +2,67 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-class CourseItem extends React.Component {
-    constructor(props) {
-        super(props); //compulsory
-        this.name = props.name;
-        this.price = props.price;
-        this.photo = props.photo;
-        // Replace single quotes with double quotes
-        this.topics = props.topics.replace(/'/g, '"');
-        //convert string into json array
-        this.topics = JSON.parse(this.topics);
-
-        console.log(this.topics);
-
+class DinningTable extends React.Component {
+    constructor(props)
+    {
+        super(props);
+        //property variable
+        this.guest = props.guest;
+        this.no = props.no;
+        //create state object
+        this.state = {
+            thali:1,
+            ras:2,
+            papad:3,
+            roti:4,
+            chas:5,
+            total:1000
+        }
     }
     render() {
-        return (<div className="col-lg-3">
+        return (<div className="col-lg-3 mb-3">
             <div className="card shadow">
-                <img src={this.photo} alt="" className="card-img-top" />
-
+                <div className="card-header d-flex justify-content-between text-bg-primary">
+                    <h5>{this.guest}</h5>
+                    <span className="badge text-bg-secondary">{this.no}</span>
+                </div>
                 <div className="card-body">
-                    <h3>{this.name}</h3>
-                    <ul className='list-group list-group-flush'>
-                        <li className='list-group-item'>{this.topics[0]}</li>
-                        <li className='list-group-item'>{this.topics[1]}</li>
-                        <li className='list-group-item'>{this.topics[2]}</li>
-                        <li className='list-group-item'>{this.topics[3]}</li>
-                    </ul>
-                </div>
-                <div className="card-footer">
-                    <h4>Fees :- {this.price}</h4>
-                </div>
-            </div>
-        </div>
-        )
-    }
-}
-class Course extends React.Component {
-    render() {
-        return (
-            <div className='container'>
-                <div className="row">
-                    <div className="col-12">
-                        <h1 className='pb-3 border-bottom'>Courses</h1>
+                    <div className="row">
+                        <div className="col-12 mb-2">
+                            <button type="button" className="btn btn-primary w-100">Thali <span className="badge text-bg-secondary">{this.state.thali}</span></button>
+                        </div>
+                        <div className="col-6 mb-2">
+                            <button type="button" className="w-100 btn btn-warning">Ras <span className="badge text-bg-secondary">{this.state.ras}</span></button>
+                        </div>
+                        <div className="col-6 mb-2">
+                            <button type="button" className="w-100 btn btn-light">Roti <span className="badge text-bg-secondary">{this.state.roti}</span></button>
+                        </div>
+                        <div className="col-6 mb-2">
+                            <button type="button" className="w-100 btn btn-info">Papad <span className="badge text-bg-secondary">{this.state.papad}</span></button>
+                        </div>
+                        <div className="col-6 mb-2">
+                            <button type="button" className="w-100 btn btn-success">Chas <span className="badge text-bg-secondary">{this.state.chas}</span></button>
+                        </div>
                     </div>
                 </div>
-                <div className="row">
-                    <CourseItem name='ABCD' price='14999' photo='https://picsum.photos/300'
-                        topics="['ABCD topic 1','ABCD topic 2','ABCD topic 3']" />
-                    <CourseItem name='XYZ' price='25999' photo='https://picsum.photos/300?random=2' topics="['XYZ topic 1','XYZ topic 2','XYZ topic 3','XYZ topic 4']" />
-                    <CourseItem name='PQR' price='13999' photo='https://picsum.photos/300?random=3' topics="['PQR topic 1']" />
-                    <CourseItem name='TER' price='99999' photo='https://picsum.photos/300?random=4' topics="['TER topic 1','TER topic 2']" />
+                <div className="card-footer d-flex justify-content-between">
+                    <h6>Total Rs </h6>
+                    <h6 className="fw-bold">{this.state.total}</h6>
                 </div>
             </div>
-        )
+        </div>);
     }
 }
-root.render(<Course />)
+class Resturant extends React.Component {
+    render() {
+        return (<div className="container">
+            <div className="row">
+                <DinningTable guest='Jeet Patel' no='1' />
+                <DinningTable guest='Ram Patel' no='2' />
+                <DinningTable guest='Geeta Patel' no='3' />
+            </div>
+        </div>
+        );
+    }
+}
+root.render(<Resturant />)

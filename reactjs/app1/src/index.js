@@ -1,120 +1,94 @@
 /* importing required react components */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-const root = ReactDOM.createRoot(document.getElementById('root'));
-class DinningTable extends React.Component {
-    constructor(props)
+class Bill extends React.Component
+{
+    render()
     {
-        super(props);
-        //property variable
-        this.guest = props.guest;
-        this.no = props.no;
-        //create state object
-        this.state = {
-            thali:0,
-            ras:0,
-            papad:0,
-            roti:0,
-            chas:0,
-            total:0
-        }
-        
-    }
-    //create static final variable
-    static get THALI_PRICE() {
-        return 100;
-    }
-    static get ROTI_PRICE()
-    {
-        return 10;
-    }
-    static get RAS_PRICE()
-    {
-        return 25;
-    }
-    static get CHAS_PRICE()
-    {
-        return 15;
-    }
-    static get PAPAD_PRICE()
-    {
-        return 7;
-    }
-
-    //create event handler arrow function
-    updateThali =()=>
-    {
-        // this.state.thali = this.state.thali + 1;
-        this.setState({
-            thali: this.state.thali + 1,
-        });
-    }
-    updateRas = () =>
-    {
-        this.setState({
-            ras: this.state.ras + 1
-        });
-
-    }
-    updateRoti = () => {
-        this.setState({
-            roti:this.state.roti + 1
-        });
-    }
-    updatePapad = () => {
-        this.setState({
-            papad: this.state.papad + 1
-        });
-    }
-    updateChas = () => {
-        this.setState({
-            chas:this.state.chas + 1
-        });
-    }
-    render() {
-        return (<div className="col-lg-3 mb-3">
-            <div className="card shadow">
-                <div className="card-header d-flex justify-content-between text-bg-primary">
-                    <h5>{this.guest}</h5>
-                    <span className="badge text-bg-secondary">{this.no}</span>
+        return (<div>
+            <div className="container-fluid bg-light p-3">
+              <div className="row">
+                <div className="col-lg-3">
+                  <h3>Billing Software</h3>
                 </div>
-                <div className="card-body">
-                    <div className="row">
-                        <div className="col-12 mb-2">
-                            <button onClick={this.updateThali} type="button" className="btn btn-primary w-100">Thali <span className="badge text-bg-secondary">{this.state.thali}</span></button>
-                        </div>
-                        <div className="col-6 mb-2">
-                            <button onClick={this.updateRas} type="button" className="w-100 btn btn-warning">Ras <span className="badge text-bg-secondary">{this.state.ras}</span></button>
-                        </div>
-                        <div className="col-6 mb-2">
-                            <button onClick={this.updateRoti} type="button" className="w-100 btn btn-light">Roti <span className="badge text-bg-secondary">{this.state.roti}</span></button>
-                        </div>
-                        <div className="col-6 mb-2">
-                            <button type="button" className="w-100 btn btn-info" onClick={this.updatePapad}>Papad <span className="badge text-bg-secondary">{this.state.papad}</span></button>
-                        </div>
-                        <div className="col-6 mb-2">
-                            <button onClick={this.updateChas} type="button" className="w-100 btn btn-success">Chas <span className="badge text-bg-secondary">{this.state.chas}</span></button>
-                        </div>
+                <div className="col-lg-9">
+                  <form className="row row-cols-lg-auto g-3 align-items-center d-flex justify-content-end">
+                    <div className="col-12">
+                      <div className="form-floating mb-3">
+                        <input type="text" className="form-control" id="name" placeholder="Product Name" />
+                        <label htmlFor="name">Product Name</label>
+                      </div>   
                     </div>
+                    <div className="col-12">
+                      <div className="form-floating mb-3">
+                        <input type="number" className="form-control" id="price" placeholder="Price" />
+                        <label htmlFor="price">Price</label>
+                      </div>   
+                    </div>
+                    <div className="col-12">
+                      <div className="form-floating mb-3">
+                        <input type="number" className="form-control" id="Quantity" placeholder="Quantity" />
+                        <label htmlFor="Quantity">Quantity</label>
+                      </div>   
+                    </div>
+                    <div className="col-12">
+                      <label className="visually-hidden" htmlFor="inlineFormSelectPref">Preference</label>
+                      <select className="form-select" id="inlineFormSelectPref">
+                        <option selected>Choose...</option>
+                        <option value="2.5">Essitantial</option>
+                        <option value="7.5">Medium</option>
+                        <option value={20}>Luxary</option>
+                      </select>
+                    </div>
+                    <div className="col-12">
+                      <button type="submit" className="btn btn-primary">Add</button>
+                    </div>
+                  </form>
                 </div>
-                <div className="card-footer d-flex justify-content-between">
-                    <h6>Total Rs </h6>
-                    <h6 className="fw-bold">{this.state.total}</h6>
-                </div>
+              </div>
             </div>
-        </div>);
+            <div className="container mt-3">
+              <div className="row">
+                <div className="col-12">
+                  <div className="card">
+                    <div className="card-header text-bg-primary">
+                      <h4>Bill Items</h4>
+                    </div>
+                    <div className="card-body">
+                      <table className="table table-striped table-sm">
+                        <tbody><tr>
+                            <th>Sr No</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Tax Rate</th>
+                            <th>Total</th>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>Waffer</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>2.5</td>
+                            <td>52.50</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>Biscuit</td>
+                            <td>20</td>
+                            <td>5</td>
+                            <td>2.5</td>
+                            <td>102.50</td>
+                          </tr>
+                        </tbody></table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          );
     }
 }
-class Resturant extends React.Component {
-    render() {
-        return (<div className="container">
-            <div className="row">
-                <DinningTable guest='Jeet Patel' no='1' />
-                <DinningTable guest='Ram Patel' no='2' />
-                <DinningTable guest='Geeta Patel' no='3' />
-            </div>
-        </div>
-        );
-    }
-}
-root.render(<Resturant />)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Bill />)

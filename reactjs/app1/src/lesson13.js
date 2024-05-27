@@ -1,89 +1,96 @@
 /* importing required react components */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+class BillItem extends React.Component {
+  constructor(props)
+  {
+      super(props);
+      this.name = props.name;
+      this.quantity = props.quantity;
+      this.price = props.price;
+      this.tax = props.tax;
+      this.srno = props.srno;
+      this.total=props.total;
+  }
+  render() {
+    return (<tr>
+      <td>{this.srno}</td>
+      <td>{this.name}</td>
+      <td>{this.price}</td>
+      <td>{this.quantity}</td>
+      <td>{this.tax}</td>
+      <td>{this.total}</td>
+      <td>
+        <button type='button' class='btn btn-danger w-100'>Delete</button>
+      </td>
+    </tr>
+    );
+  }
+}
 class Bill extends React.Component {
   //create as many state variables as many inputs
-  constructor(props) {
-    super(props)
-    //create state object
-    this.state = {
-      name: '',
-      price: 0,
-      quantity: 0,
-      tax: 0,
-      total: 0,
-      items: []
-    }
-  }
-  deleteItem = (product) => {
-    // alert(product.name);
-    let temp = this.state.items.filter((current) => {
-        if(current.name !== product.name)
-          return current;
-    });
-    this.setState({
-      items:temp
-    });
-  }
-  DisplayBillItem = (product,index) => {
-      return (<tr>
-        <td>{index+1}</td>
-        <td>{product.name}</td>
-        <td>{product.price}</td>
-        <td>{product.quantity}</td>
-        <td>{product.tax}</td>
-        <td>{product.total}</td>
-        <td>
-          <button onClick={() => this.deleteItem(product)} type='button' class='btn btn-danger w-100'>Delete</button>
-        </td>
-      </tr>
-      );
+  constructor(props)
+  {
+      super(props)
+      //create state object
+      this.state = {
+        name:'',
+        price:0,
+        quantity:0,
+        tax:0,
+        total:0,
+        items: []
+      }
   }
   //create arrow function
   updateName = (userGivenInput) => {
     console.log(userGivenInput);
     this.setState({
-      name: userGivenInput
+      name:userGivenInput
     });
   }
-  updatePrice = (userGivenInput) => {
+  updatePrice = (userGivenInput) =>
+  {
     this.setState({
-      price: userGivenInput
+      price:userGivenInput
     });
   }
-
-  updateQuantity = (userGivenInput) => {
+  
+  updateQuantity = (userGivenInput) =>
+  {
     this.setState({
-      quantity: userGivenInput
+      quantity:userGivenInput
     });
   }
-
-  updateTax = (userGivenInput) => {
+  
+  updateTax = (userGivenInput) => 
+  {
     this.setState({
       tax: userGivenInput
     });
   }
 
-  addBillItem = (event) => {
-    event.preventDefault();
-    let product = {
-      name: this.state.name,
-      price: parseInt(this.state.price),
-      quantity: parseInt(this.state.quantity),
-      tax: ((this.state.price * this.state.quantity) * this.state.tax) / 100,
-      total: (this.state.price * this.state.quantity) + parseFloat(this.state.tax)
-    }
-    //add object into array 
-    this.setState({
-      items: [...this.state.items, product],
-      name: '',
-      price: '',
-      quantity: ''
-    });
-    console.log(this.state.items);
+  addBillItem = (event) =>
+  {
+      event.preventDefault();
+      let product = {
+        name: this.state.name,
+        price: parseInt(this.state.price), 
+        quantity: parseInt(this.state.quantity),
+        tax: ((this.state.price * this.state.quantity) * this.state.tax)/100,
+        total: (this.state.price * this.state.quantity) + parseFloat(this.state.tax)
+      }
+      //add object into array 
+      this.setState({
+          items:[...this.state.items,product],
+          name:'',
+          price:'',
+          quantity:''
+      });
+      console.log(this.state.items);
   }
-  render() {
+  render() 
+  {
     return (<div>
       <div className="container-fluid bg-light p-3">
         <div className="row">
@@ -95,24 +102,24 @@ class Bill extends React.Component {
               <div className="col-12">
                 <div className="form-floating mb-3">
                   <input type="text" className="form-control" id="name" placeholder="Product Name"
-                    value={this.state.name} required
-                    onChange={(event) => this.updateName(event.target.value)} />
+                  value={this.state.name} required
+                  onChange={(event) => this.updateName(event.target.value)} />
                   <label htmlFor="name">Product Name</label>
                 </div>
               </div>
               <div className="col-12">
                 <div className="form-floating mb-3">
                   <input type="number" className="form-control" id="price" placeholder="Price" required
-                    value={this.state.price}
-                    onChange={(event) => this.updatePrice(event.target.value)} />
+                  value={this.state.price}
+                  onChange={(event) => this.updatePrice(event.target.value)} />
                   <label htmlFor="price">Price</label>
                 </div>
               </div>
               <div className="col-12">
                 <div className="form-floating mb-3">
                   <input type="number" className="form-control" id="Quantity" placeholder="Quantity" required
-                    value={this.state.quantity}
-                    onChange={(event) => this.updateQuantity(event.target.value)} />
+                  value={this.state.quantity}
+                  onChange={(event) => this.updateQuantity(event.target.value)} />
                   <label htmlFor="Quantity">Quantity</label>
                 </div>
               </div>
@@ -152,8 +159,8 @@ class Bill extends React.Component {
                     </tr>
                   </thead>
                   <tbody >
-                    {this.state.items.map((product, index) => {
-                      return this.DisplayBillItem(product,index);
+                    {this.state.items.map((product,index)=>{
+                        return <BillItem srno={index+1} name={product.name} price={product.price} quantity={product.quantity} tax={product.tax} total={product.total} />
                     })}
                   </tbody>
                 </table>

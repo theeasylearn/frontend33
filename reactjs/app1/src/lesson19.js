@@ -10,7 +10,8 @@ function MailBox(props)
       <div className='col-12'>
           <h1>Inbox</h1>
           <hr />
-        {(messages.length > 0) ? <p> you have {messages.length} new messages</p> : <p>you have no new message</p>}
+        {messages.length > 0 && <p> you have {messages.length} new messages</p>}
+        {messages.length == 0 && <p>Empty inbox</p>}
       </div>
     </div>
   </div>)

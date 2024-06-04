@@ -15,3 +15,7 @@
 9) create reactjs function components to display Food Dish just like zomato/swiggy. there should be 32 food dishes. it should be stored into array of object. and should be displayed using map function
 
 10) create reactjs function components to display news just like https://www.divyabhaskar.co.in/. there should be 24 news. it should be stored into array of object. and should be displayed using map function
+
+11) recreate bootstrap design to display 12 IPL team name, logo and display symbol of trophy no of times team has win ipl. and display duck for those who has not won any trophy. (conditional rendering)
+
+12)

@@ -18,4 +18,6 @@
 
 11) recreate bootstrap design to display 12 IPL team name, logo and display symbol of trophy no of times team has win ipl. and display duck for those who has not won any trophy. (conditional rendering)
 
-12)
+12) display country data as card using List and keys (map function). data available in country.txt file 
+
+13) display routes data as table using List and keys (map function). data available in routes.txt file 

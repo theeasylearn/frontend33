@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './team.css';
 const teamList = [
   {
     team: "Afghanistan",
@@ -83,28 +82,42 @@ const teamList = [
     group: "A"
   }
 ];
+
 function Team(props) {
+  //create inline style
+  const tableStyle = {
+    backgroundColor: 'gray',
+    border: '2px solid yellow',
+    color: 'white',
+    width: '100%',
+    fontSize:'1.5rem',
+    marginBottom:'20px'
+  }
+  const tdStyle = {
+    border: '2px solid white',
+    textAlign:'center'
+  }
   var { team, abbreviation, group } = props.detail;
   return (
     <div className="col-lg-3">
-      <table className='table-style'>
-        <tr>
-          <td className='td-style'>{team}</td>
-        </tr>
-        <tr>
-          <td className='td-style'>{abbreviation}</td>
-        </tr>
-        <tr>
-          <td className='td-style'>{group}</td>
-        </tr>
-      </table>
-    </div>)
+    <table style={tableStyle}>
+    <tr>
+      <td style={tdStyle}>{team}</td>
+    </tr>
+    <tr>
+      <td style={tdStyle}>{abbreviation}</td>
+    </tr>
+    <tr>
+      <td style={tdStyle}>{group}</td>
+    </tr>
+  </table>
+  </div>)
 }
 function ICCT20(props) {
 
   return (<div className="container">
     <div className="row">
-      {teamList.map(function (item) {
+      {teamList.map(function(item){
         return <Team detail={item} />
       })}
     </div>
@@ -112,5 +125,6 @@ function ICCT20(props) {
   );
 
 }
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<ICCT20 />)

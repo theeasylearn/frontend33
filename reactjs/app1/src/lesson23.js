@@ -1,24 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// to run this example first run below command in terminal 
-//npm install  styled-components
-//then start project and run this example
-
-import styled from 'styled-components';
-const Table = styled.table`
- background-color: gray;
-    border: 2px solid yellow;
-    color: white;
-    width: 100%;
-    font-size: 1.5rem;
-    margin-bottom: 20px
-`;
-
-const Td = styled.td`
-border: 2px solid white;
-    text-align: center
-`;
-
+import './team.css';
 const teamList = [
   {
     team: "Afghanistan",
@@ -105,17 +87,17 @@ function Team(props) {
   var { team, abbreviation, group } = props.detail;
   return (
     <div className="col-lg-3">
-      <Table>
+      <table className='table-style'>
         <tr>
-          <Td>{team}</Td>
+          <td className='td-style'>{team}</td>
         </tr>
         <tr>
-          <Td>{abbreviation}</Td>
+          <td className='td-style'>{abbreviation}</td>
         </tr>
         <tr>
-          <Td>{group}</Td>
+          <td className='td-style'>{group}</td>
         </tr>
-      </Table>
+      </table>
     </div>)
 }
 function ICCT20(props) {

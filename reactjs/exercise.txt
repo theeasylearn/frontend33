@@ -21,3 +21,8 @@
 12) display country data as card using List and keys (map function). data available in country.txt file 
 
 13) display routes data as table using List and keys (map function). data available in routes.txt file 
+
+
+14) create full functional react website using below template 
+https://themewagon.com/themes/travela/
+kindly follow instruction given in class 

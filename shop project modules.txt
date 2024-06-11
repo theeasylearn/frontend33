@@ -36,9 +36,9 @@ Types of users
                 view, search, shopping history, send mail, block & unblock   
                 users
             Dashboard (class)
-            login (class)
+            login (class) *
             change password (class)
-            forgot password (class)
+            forgot password (class) *
     buyers /register users (class)
         register, login, logout, change password, recover account
         browse products, manage cart, wishlist, place orders 

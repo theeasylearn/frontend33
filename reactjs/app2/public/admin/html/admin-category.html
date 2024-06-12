@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="navbar-nav-right" id="navbar-collapse">
-                        <h4 class="my-2"> Basic Tables</h4>
+                        <h4 class="my-2">Category Management</h4>
                     </div>
                 </nav>
 
@@ -115,10 +115,38 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="card shadow">
                             <div class="card-header bg-primary p-3 d-flex justify-content-between">
-                                <h4 class="text-white mb-0">sub heading</h4>
-                                <a href="" class="btn btn-light">Click me</a>
+                                <h4 class="text-white mb-0">Categories</h4>
+                                <a href="admin-add-category.html" class="btn btn-light">Add new category</a>
                             </div>
-                            <div class="card-body"></div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th width="10%">id</th>
+                                                <th width="30%">Title</th>
+                                                <th width="30%">Photo</th>
+                                                <th width="5%">Is Live</th>
+                                                <th width="25%">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Mobile</td>
+                                                <td>
+                                                    <img src="https://picsum.photos/100" class="img-fluid">
+                                                </td>
+                                                <td>Yes</td>
+                                                <td>
+                                                    <a class="btn btn-dark" href="admin-edit-category.html">Edit</a>
+                                                    <a class="btn btn-danger" href="">Delete</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

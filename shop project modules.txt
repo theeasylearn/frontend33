@@ -7,7 +7,7 @@ Types of users
             Category management (class)
                 Add, edit, delete, view, search categories
                 table 
-                id,title,detail,photo,islive,isdeleted
+                id,title,photo,islive,isdeleted
             Product management  (class)
                 Add, edit, delete, view, search products
                 table 

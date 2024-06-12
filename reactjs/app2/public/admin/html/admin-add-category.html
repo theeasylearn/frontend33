@@ -37,7 +37,7 @@
                 <div class="app-brand demo">
                     <a href="index.html" class="app-brand-link">
                         <span class="app-brand-logo demo">
-                          <img src="../assets/img/logo.png" alt="">
+                            <img src="../assets/img/logo.png" alt="">
                         </span>
                         <span class="app-brand-text demo menu-text fw-bolder ms-2">Online shop</span>
                     </a>
@@ -56,36 +56,36 @@
                             <i class='bx bxs-tachometer'></i> Dashboard
                         </a>
                     </li>
-                <li class="menu-item">
-                    <a href="admin-category.html" class="menu-link border shadow-sm">
-                        <i class='bx bxs-purchase-tag-alt'></i> Categories
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="admin-product.html" class="menu-link border shadow-sm">
-                        <i class='bx bxs-box'></i> Products
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="admin-orders.html" class="menu-link border shadow-sm">
-                        <i class='bx bxs-cart'></i> Orders
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="admin-users.html" class="menu-link border shadow-sm">
-                        <i class='bx bxs-user'></i> Customers
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="admin-change-password.html" class="menu-link border shadow-sm">
-                        <i class='bx bxs-lock'></i> Change password
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link border shadow-sm">
-                        <i class='bx bxs-exit'></i> Logout
-                    </a>
-                </li>
+                    <li class="menu-item">
+                        <a href="admin-category.html" class="menu-link border shadow-sm">
+                            <i class='bx bxs-purchase-tag-alt'></i> Categories
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="admin-product.html" class="menu-link border shadow-sm">
+                            <i class='bx bxs-box'></i> Products
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="admin-orders.html" class="menu-link border shadow-sm">
+                            <i class='bx bxs-cart'></i> Orders
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="admin-users.html" class="menu-link border shadow-sm">
+                            <i class='bx bxs-user'></i> Customers
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="admin-change-password.html" class="menu-link border shadow-sm">
+                            <i class='bx bxs-lock'></i> Change password
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link border shadow-sm">
+                            <i class='bx bxs-exit'></i> Logout
+                        </a>
+                    </li>
 
                 </ul>
             </aside>
@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="navbar-nav-right" id="navbar-collapse">
-                        <h4 class="my-2"> Basic Tables</h4>
+                        <h4 class="my-2">Category management</h4>
                     </div>
                 </nav>
 
@@ -115,10 +115,36 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="card shadow">
                             <div class="card-header bg-primary p-3 d-flex justify-content-between">
-                                <h4 class="text-white mb-0">sub heading</h4>
-                                <a href="" class="btn btn-light">Click me</a>
+                                <h4 class="text-white mb-0">Add new category</h4>
+                                <a href="admin-category.html" class="btn btn-light">back</a>
                             </div>
-                            <div class="card-body"></div>
+                            <div class="card-body">
+                                <form action="">
+                                    <div class="mb-3 mt-3">
+                                        <label for="title" class="form-label">Title</label>
+                                        <input id="title" type="text" class="form-control" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="photo" class="form-label">Select Photo</label>
+                                        <input type="file" name="photo" id="photo" class="form-control" required>
+                                    </div>
+                                    <label for="" class="form-label">is live?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="islive" checked="" required
+                                            id="yes">
+                                        <label class="form-check-label" for="yes">Yes</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="islive"required
+                                            id="no" >
+                                        <label class="form-check-label" for="no">No</label>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <input type="submit" value="Save" class="btn btn-primary">&nbsp;
+                                        <input type="reset" value="clear all" class="btn btn-dark">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
 

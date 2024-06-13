@@ -20,10 +20,10 @@
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../assets/css/demo.css" />
-    <link rel="stylesheet" href="../lightbox/css/lightbox.min.css">
+
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    
+   
 </head>
 
 <body>
@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="navbar-nav-right" id="navbar-collapse">
-                        <h4 class="my-2">Category Management</h4>
+                        <h4 class="my-2">Product management</h4>
                     </div>
                 </nav>
 
@@ -114,40 +114,84 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="card shadow">
                             <div class="card-header bg-primary p-3 d-flex justify-content-between">
-                                <h4 class="text-white mb-0">Categories</h4>
-                                <a href="admin-add-category.html" class="btn btn-light">Add new category</a>
+                                <h4 class="text-white mb-0">Add new product</h4>
+                                <a href="admin-product.html" class="btn btn-light">back</a>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th width="10%">id</th>
-                                                <th width="30%">Title</th>
-                                                <th width="30%">Photo</th>
-                                                <th width="5%">Is Live</th>
-                                                <th width="25%">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Mobile</td>
-                                                <td>
-                                                    <a class="example-image-link" href="https://picsum.photos/400"
-                                                        data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
-                                                    <img src="https://picsum.photos/100" class="img-fluid example-image">
-                                                    </a>
-                                                </td>
-                                                <td>Yes</td>
-                                                <td>
-                                                    <a class="btn btn-dark" href="admin-edit-category.html">Edit</a>
-                                                    <a class="btn btn-danger" href="">Delete</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <form>
+                                    <div class="row mb-3 mt-3">
+                                        <!-- Category -->
+                                        <div class="col-md-4">
+                                            <label for="category" class="form-label">Category</label>
+                                            <select id="category" class="form-select" required>
+                                                <option value="">Select Category</option>
+                                                <option value="1">Category 1</option>
+                                                <option value="2">Category 2</option>
+                                                <option value="3">Category 3</option>
+                                            </select>
+                                        </div>
+                                        <!-- Title -->
+                                        <div class="col-md-4">
+                                            <label for="title" class="form-label">Title</label>
+                                            <input type="text" class="form-control" id="title" required>
+                                        </div>
+                                        <!-- Photo -->
+                                        <div class="col-md-4">
+                                            <label for="photo" class="form-label">Photo</label>
+                                            <input type="file" class="form-control" id="photo" accept="image/*" required>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="row mb-3">
+                                        <!-- Price -->
+                                        <div class="col-md-3">
+                                            <label for="price" class="form-label">Price</label>
+                                            <input type="number" class="form-control" id="price" required>
+                                        </div>
+                                        <!-- Stock -->
+                                        <div class="col-md-3">
+                                            <label for="stock" class="form-label">Stock</label>
+                                            <input type="number" class="form-control" id="stock" required>
+                                        </div>
+                                        <!-- Weight -->
+                                        <div class="col-md-3">
+                                            <label for="weight" class="form-label">Weight</label>
+                                            <input type="text" class="form-control" id="weight" required>
+                                        </div>
+                                        <!-- Size -->
+                                        <div class="col-md-3">
+                                            <label for="size" class="form-label">Size</label>
+                                            <input type="text" class="form-control" id="size" required>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="row mb-3">
+                                        <!-- Is Live -->
+                                        <div class="col-md-3">
+                                            <label class="form-label">Is Live</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="islive" id="liveYes" value="yes" required>
+                                                <label class="form-check-label" for="liveYes">Yes</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="islive" id="liveNo" value="no" required>
+                                                <label class="form-check-label" for="liveNo">No</label>
+                                            </div>
+                                        </div>
+                                        <!-- Detail -->
+                                        <div class="col-md-9">
+                                            <label for="detail" class="form-label">Detail</label>
+                                            <textarea class="form-control" id="detail" rows="3" required></textarea>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="row mb-3">
+                                        <div class="col-12 text-end">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="reset" class="btn btn-dark">Clear all</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -168,7 +212,6 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/vendor/js/helpers.js"></script>
     <script src="../assets/js/config.js"></script>
-    <script src="../lightbox/js/lightbox-plus-jquery.min.js"></script>
 </body>
 
 </html>

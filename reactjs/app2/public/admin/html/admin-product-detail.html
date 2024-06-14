@@ -23,8 +23,7 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <link rel="stylesheet" href="../lightbox/css/lightbox.min.css">
+   
 </head>
 
 <body>
@@ -37,7 +36,7 @@
                 <div class="app-brand demo">
                     <a href="index.html" class="app-brand-link">
                         <span class="app-brand-logo demo">
-                            <img src="../assets/img/logo.png" alt="">
+                          <img src="../assets/img/logo.png" alt="">
                         </span>
                         <span class="app-brand-text demo menu-text fw-bolder ms-2">Online shop</span>
                     </a>
@@ -56,36 +55,36 @@
                             <i class='bx bxs-tachometer'></i> Dashboard
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="admin-category.html" class="menu-link border shadow-sm">
-                            <i class='bx bxs-purchase-tag-alt'></i> Categories
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="admin-product.html" class="menu-link border shadow-sm">
-                            <i class='bx bxs-box'></i> Products
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="admin-orders.html" class="menu-link border shadow-sm">
-                            <i class='bx bxs-cart'></i> Orders
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="admin-users.html" class="menu-link border shadow-sm">
-                            <i class='bx bxs-user'></i> Customers
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="admin-change-password.html" class="menu-link border shadow-sm">
-                            <i class='bx bxs-lock'></i> Change password
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link border shadow-sm">
-                            <i class='bx bxs-exit'></i> Logout
-                        </a>
-                    </li>
+                <li class="menu-item">
+                    <a href="admin-category.html" class="menu-link border shadow-sm">
+                        <i class='bx bxs-purchase-tag-alt'></i> Categories
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-product.html" class="menu-link border shadow-sm">
+                        <i class='bx bxs-box'></i> Products
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-orders.html" class="menu-link border shadow-sm">
+                        <i class='bx bxs-cart'></i> Orders
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-users.html" class="menu-link border shadow-sm">
+                        <i class='bx bxs-user'></i> Customers
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-change-password.html" class="menu-link border shadow-sm">
+                        <i class='bx bxs-lock'></i> Change password
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link border shadow-sm">
+                        <i class='bx bxs-exit'></i> Logout
+                    </a>
+                </li>
 
                 </ul>
             </aside>
@@ -104,7 +103,7 @@
                     </div>
 
                     <div class="navbar-nav-right" id="navbar-collapse">
-                        <h4 class="my-2">Product management</h4>
+                        <h4 class="my-2">Product Management</h4>
                     </div>
                 </nav>
 
@@ -115,52 +114,61 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="card shadow">
                             <div class="card-header bg-primary p-3 d-flex justify-content-between">
-                                <h4 class="text-white mb-0">Product</h4>
-                                <a href="admin-add-product.html" class="btn btn-light">Add new product</a>
+                                <h4 class="text-white mb-0">IPhone - 15</h4>
+                                <a href="admin-product.html" class="btn btn-light">Back</a>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
+                                <div class="row mt-2">
+                                    <div class="col-lg-5">
+                                        <img src="https://picsum.photos/400" class="img-fluid shadow img-thumbnail">
+                                        <hr>
+                                        <div class="d-flex justify-content-around">
+                                            <a title="edit" href="admin-edit-product.html">
+                                                <i class='bx bx-edit bx-md'></i>
+                                            </a>
+                                            <a href="" title="delete">
+                                                <i class='bx bx-trash bx-md'></i>
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <table class="table">
                                             <tr>
-                                                <th width="10%">id</th>
-                                                <th width="30%">Title <br />
-                                                    Category
-                                                </th>
-                                                <th width="25%">Photo</th>
-                                                <th width="10%">price</th>
-                                                <th width="5%">Is Live</th>
-                                                <th width="20%">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
+                                                <td class="fw-bold">id</td>
                                                 <td>1</td>
-                                                <td>IPhone 15 <br /> Phone</td>
-                                                <td>
-                                                    <a class="example-image-link" href="https://picsum.photos/400"
-                                                        data-lightbox="example-set"
-                                                        data-title="Click the right half of the image to move forward.">
-                                                        <img src="https://picsum.photos/100"
-                                                            class="img-fluid example-image" />
-                                                    </a>
-                                                </td>
-                                                <td>125000</td>
-                                                <td>Yes</td>
-                                                <td>
-                                                    <a title="edit" href="admin-edit-product.html">
-                                                        <i class='bx bx-edit bx-md'></i>
-                                                    </a>
-                                                    <a href="" title="delete">
-                                                        <i class='bx bx-trash bx-md'></i>
-                                                    </a>
-                                                    <a href="admin-product-detail.html" title="">
-                                                        <i class='bx bxs-detail bx-md'></i>
-                                                    </a>
-                                                </td>
                                             </tr>
-                                        </tbody>
-                                    </table>
+                                            <tr>
+                                                <td class="fw-bold">Category</td>
+                                                <td>Mobile</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Price</td>
+                                                <td>125000</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Quantity</td>
+                                                <td>100</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Weight</td>
+                                                <td>300 grams</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Size</td>
+                                                <td>Medium</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">is Live</td>
+                                                <td>yes</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Detail</td>
+                                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eveniet id sequi obcaecati maxime rem atque architecto a numquam? Fugit vitae culpa iste libero maiores delectus porro ullam, quae dolores!</td>
+                                            </tr>
+                                          
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -182,8 +190,6 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/vendor/js/helpers.js"></script>
     <script src="../assets/js/config.js"></script>
-    <script src="../lightbox/js/lightbox-plus-jquery.min.js"></script>
-
 </body>
 
 </html>

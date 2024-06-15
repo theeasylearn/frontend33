@@ -32,7 +32,8 @@ Types of users
                 2 bill
                     id,userid,billdate,amount,paymentmode,paymentstatus,fullname,address1,address2,city,pincode,mobile,remarks,orderstatus
 
-            Users management   (class)      
+            Users management   (class)   
+                id,email,mobile,password,register_at
                 view, search, shopping history, send mail, block & unblock   
                 users
             Dashboard (class)

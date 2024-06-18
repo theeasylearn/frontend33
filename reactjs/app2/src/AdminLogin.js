@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 export default function AdminLogin()
 {
 	return(
@@ -11,7 +12,7 @@ export default function AdminLogin()
                 <div className="card-body">
                   {/* Logo */}
                   <div className="app-brand justify-content-center">
-                    <a href="index.html" className="app-brand-link gap-2">
+                    <a href="#" className="app-brand-link gap-2">
                       <span className="app-brand-logo demo">
                         <img src="admin/assets/img/logo.png" />
                       </span>
@@ -19,7 +20,7 @@ export default function AdminLogin()
                     </a>
                   </div>
                   {/* /Logo */}
-                  <h4 className="mb-2">Admin Login</h4>
+                  <h4 className="my-4 text-center">Admin Login</h4>
                   <form id="formAuthentication" className="mb-3" action="index.html" method="POST">
                     <div className="mb-3">
                       <label htmlFor="email" className="form-label">Email</label>
@@ -28,9 +29,9 @@ export default function AdminLogin()
                     <div className="mb-3 form-password-toggle">
                       <div className="d-flex justify-content-between">
                         <label className="form-label" htmlFor="password">Password</label>
-                        <a href="auth-forgot-password-basic.html">
+                        <Link to="/admin-forgot-password">
                           <small>Forgot Password?</small>
-                        </a>
+                        </Link>
                       </div>
                       <div className="input-group input-group-merge">
                         <input type="password" id="password" className="form-control" name="password" placeholder="············" aria-describedby="password" />

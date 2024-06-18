@@ -1,6 +1,6 @@
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
-
+import { Link } from "react-router-dom";
 export default function AdminCategory()
 {
 	return(
@@ -20,7 +20,7 @@ export default function AdminCategory()
           <div className="card shadow">
             <div className="card-header bg-primary p-3 d-flex justify-content-between">
               <h4 className="text-white mb-0">Categories</h4>
-              <a href="admin-add-category.html" className="btn btn-light">Add new category</a>
+              <Link to="/admin-add-category" className="btn btn-light">Add new category</Link>
             </div>
             <div className="card-body">
               <div className="table-responsive">
@@ -45,7 +45,7 @@ export default function AdminCategory()
                       </td>
                       <td>Yes</td>
                       <td>
-                        <a className="btn btn-dark" href="admin-edit-category.html">Edit</a>
+                        <Link className="btn btn-dark" to="/admin-edit-category">Edit</Link>
                         <a className="btn btn-danger" href>Delete</a>
                       </td>
                     </tr>

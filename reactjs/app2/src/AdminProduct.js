@@ -1,6 +1,6 @@
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
-
+import { Link } from "react-router-dom";
 export default function AdminProduct()
 {
 	return(
@@ -20,7 +20,7 @@ export default function AdminProduct()
           <div className="card shadow">
             <div className="card-header bg-primary p-3 d-flex justify-content-between">
               <h4 className="text-white mb-0">Product</h4>
-              <a href="admin-add-product.html" className="btn btn-light">Add new product</a>
+              <Link to="/admin-add-product" className="btn btn-light">Add new product</Link>
             </div>
             <div className="card-body">
               <div className="table-responsive">
@@ -49,15 +49,15 @@ export default function AdminProduct()
                       <td>125000</td>
                       <td>Yes</td>
                       <td>
-                        <a title="edit" href="admin-edit-product.html">
+                        <Link title="edit" to="/admin-edit-product">
                           <i className="bx bx-edit bx-md" />
-                        </a>
+                        </Link>
                         <a href title="delete">
                           <i className="bx bx-trash bx-md" />
                         </a>
-                        <a href="admin-product-detail.html" title>
+                        <Link to="/admin-product-detail" title>
                           <i className="bx bxs-detail bx-md" />
-                        </a>
+                        </Link>
                       </td>
                     </tr>
                   </tbody>

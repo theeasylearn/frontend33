@@ -1,6 +1,6 @@
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
-
+import { Link } from "react-router-dom";
 export default function AdminOrders()
 {
 	return(
@@ -45,9 +45,9 @@ export default function AdminOrders()
                         Bhavnagar - 364001
                       </td>
                       <td>
-                        <a href="admin-orders-detail.html" title="order detail">
+                        <Link to="/admin-orders-detail" title="order detail">
                           <i className="bx bxs-detail bx-md" />
-                        </a>
+                        </Link>
                       </td>
                     </tr>
                   </tbody>

@@ -1,6 +1,6 @@
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
-
+import { Link } from "react-router-dom";
 export default function AdminOrdersDetail()
 {
 	return(
@@ -20,7 +20,7 @@ export default function AdminOrdersDetail()
           <div className="card shadow">
             <div className="card-header bg-primary p-3 d-flex justify-content-between">
               <h4 className="text-white mb-0">Bill No : 100</h4>
-              <a href="print-bill.html" className="btn btn-light">Print</a>
+              <Link to="/admin-print-bill" className="btn btn-light">Print</Link>
             </div>
             <div className="card-body pt-1">
               <div className="table-responsive">

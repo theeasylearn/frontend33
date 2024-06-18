@@ -1,6 +1,6 @@
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
-
+import { Link } from "react-router-dom";
 export default function AdminUsers()
 {
 	return(
@@ -40,9 +40,9 @@ export default function AdminUsers()
                       <td>1234567890</td>
                       <td>15-june-2024</td>
                       <td>
-                        <a href="admin-orders.html" title="view shoping history">
+                        <Link to="/admin-orders" title="view shoping history">
                           <i className="bx bxs-detail bx-md" />
-                        </a>
+                        </Link>
                       </td>
                     </tr>
                   </tbody>

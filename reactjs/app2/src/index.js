@@ -18,6 +18,7 @@ import AdminUsers from './AdminUsers';
 import AdminForgotPassword from './AdminForgotPassword';
 import AdminLogin from './AdminLogin';
 import PrintBill from './print-bill';
+import NoPageFound from './NoPageFound';
 function MyRouter()
 {
     return (<BrowserRouter>
@@ -37,6 +38,8 @@ function MyRouter()
             <Route path='/admin-orders' element={<AdminOrders />} />
             <Route path='/admin-orders-detail' element={<AdminOrdersDetail />} />
             <Route path='/admin-print-bill' element={<PrintBill />} />
+            {/* create route for non existing page/route */}
+            <Route path='*' element={<NoPageFound />} />
         </Routes>
     </BrowserRouter>)
 }

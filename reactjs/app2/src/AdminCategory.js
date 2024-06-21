@@ -1,8 +1,39 @@
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 export default function AdminCategory()
 {
+  //create state array
+  let [categories,setCategory] = useState([]);
+
+  // use hook UseEffect 
+  useEffect(() => {
+      if(categories.length === 0)
+      {
+        //call api using fetch
+        let apiAddress = "http://www.theeasylearnacademy.com/shop/ws/category.php";
+        fetch(apiAddress)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data); //display json 
+            let error = data[0]['error'];
+            console.log(error);
+            if (error !== 'no')
+              alert(error);
+            else {
+              let total = data[1]['total'];
+              if (total === 0)
+                alert('no category found');
+              else {
+                data.splice(0, 2); //delete 1st two object from array
+                setCategory(data);
+              }
+            }
+          });
+      }  
+  });
+
 	return(
 		<div className="layout-wrapper layout-content-navbar">
   <div className="layout-container">
@@ -35,20 +66,22 @@ export default function AdminCategory()
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Mobile</td>
-                      <td>
-                        <a className="example-image-link" href="https://picsum.photos/400" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
-                          <img src="https://picsum.photos/100" className="img-fluid example-image" />
-                        </a>
-                      </td>
-                      <td>Yes</td>
-                      <td>
-                        <Link className="btn btn-dark" to="/admin-edit-category">Edit</Link>
-                        <a className="btn btn-danger" href>Delete</a>
-                      </td>
-                    </tr>
+                    {categories.map((item)=>{
+                      return (<tr>
+                        <td>{item['id']}</td>
+                        <td>{item['title']}</td>
+                        <td>
+                          <a className="example-image-link" href={"http://www.theeasylearnacademy.com/shop/images/category/" + item['photo']}data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+                            <img src={"http://www.theeasylearnacademy.com/shop/images/category/" + item['photo']} className="img-fluid example-image" />
+                          </a>
+                        </td>
+                        <td>{(item['islive']==='1'?'yes':'no')}</td>
+                        <td>
+                          <Link className="btn btn-dark" to="/admin-edit-category">Edit</Link>
+                          <a className="btn btn-danger" href>Delete</a>
+                        </td>
+                      </tr>)
+                    })}
                   </tbody>
                 </table>
               </div>

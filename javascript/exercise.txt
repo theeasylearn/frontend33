@@ -1,9 +1,9 @@
 1) display your own resume using document.write method. resume should be well formated using html tags.
 2) write javascript code which has 18 buttons and 18 div tags. when user click on specific button it should display specific geetsar in specific div tag.
 
-3) Develop EMI Calculator in javascript. take neccesary input from user usin html.
+3) Develop EMI Calculator in javascript. take neccesary input from user using html.
 
-4) Develop BMI Calculator in javascript. take neccesary input from user usin html.
+4) Develop BMI Calculator in javascript. take neccesary input from user using html.
 
 5) create class KG which return Kilogram of grams given in constructor and it has method getKG which return KG. extends this class in Ton. which has method getTon that returns ton of grams given in constructor.
 

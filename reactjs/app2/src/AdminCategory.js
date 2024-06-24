@@ -2,6 +2,7 @@ import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import getBase, {getImgBase} from "./api";
 export default function AdminCategory()
 {
   //create state array
@@ -12,7 +13,7 @@ export default function AdminCategory()
       if(categories.length === 0)
       {
         //call api using fetch
-        let apiAddress = "http://www.theeasylearnacademy.com/shop/ws/category.php";
+        let apiAddress = getBase() + "category.php";
         fetch(apiAddress)
           .then((response) => response.json())
           .then((data) => {
@@ -30,6 +31,10 @@ export default function AdminCategory()
                 setCategory(data);
               }
             }
+          })
+          .catch((error) =>{
+            if (error.toString().indexOf('NetworkError')>=0)
+                alert('either you are or server is offline');
           });
       }  
   });
@@ -71,7 +76,7 @@ export default function AdminCategory()
                         <td>{item['id']}</td>
                         <td>{item['title']}</td>
                         <td>
-                          <a className="example-image-link" href={"http://www.theeasylearnacademy.com/shop/images/category/" + item['photo']}data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+                          <a className="example-image-link" href={getImgBase() + "category/" + item['photo']}data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
                             <img src={"http://www.theeasylearnacademy.com/shop/images/category/" + item['photo']} className="img-fluid example-image" />
                           </a>
                         </td>

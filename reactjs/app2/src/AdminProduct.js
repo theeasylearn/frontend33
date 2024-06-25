@@ -1,8 +1,52 @@
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useEffect, useState } from "react";
+import getBase, { getImgBase } from './api';
+//create state array
 export default function AdminProduct()
 {
+  let [products, setProduct] = useState([]);
+  //create function fetchProduct()
+  let fetchProduct = function() {
+      if(products.length === 0)
+      {
+        let apiAddress = getBase() + "product.php";
+        //use axios class to call api
+        axios({
+          method: 'get',
+          responseType: 'json',
+          url: apiAddress
+        }).then((response) => {
+          console.log(response);
+          let error = response.data[0]['error'];
+          console.log(error);
+          if (error !== 'no') {
+            //there is some error
+            alert(error);
+          }
+          else {
+            let total = response.data[1]['total'];
+            if (total === 0)
+              alert('no product found');
+            else {
+              //delete 2object from begining
+              response.data.splice(0, 2);
+              //store remaining array into state array
+              setProduct(response.data);
+
+            }
+          }
+        }).catch((error) => {
+          console.log(error);
+          if (error['code'] === 'ERR_NETWORK')
+            alert('you are offline (internet is not available) ');
+        });
+      }  
+  }
+  //fetch api should be called inside useEffect hook 
+  useEffect(() => fetchProduct())
 	return(
 <div className="layout-wrapper layout-content-navbar">
   <div className="layout-container">
@@ -38,28 +82,30 @@ export default function AdminProduct()
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>IPhone 15 <br /> Phone</td>
-                      <td>
-                        <a className="example-image-link" href="https://picsum.photos/400" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
-                          <img src="https://picsum.photos/100" className="img-fluid example-image" />
-                        </a>
-                      </td>
-                      <td>125000</td>
-                      <td>Yes</td>
-                      <td>
-                        <Link title="edit" to="/admin-edit-product">
-                          <i className="bx bx-edit bx-md" />
-                        </Link>
-                        <a href title="delete">
-                          <i className="bx bx-trash bx-md" />
-                        </a>
-                        <Link to="/admin-product-detail" title>
-                          <i className="bx bxs-detail bx-md" />
-                        </Link>
-                      </td>
-                    </tr>
+                    {products.map((item) => {
+                      return (<tr>
+                        <td>{item['id']}</td>
+                        <td>{item['title']} <hr /> {item['categorytitle']}</td>
+                        <td>
+                          <a className="example-image-link" href="https://picsum.photos/400" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+                            <img src={getImgBase() + "product/" + item['photo']} className="img-fluid example-image" />
+                          </a>
+                        </td>
+                        <td>{item['price']}</td>
+                        <td>{(item['islive'] === '1')?"yes":"no"}</td>
+                        <td>
+                          <Link title="edit" to="/admin-edit-product">
+                            <i className="bx bx-edit bx-md" />
+                          </Link>
+                          <a href title="delete">
+                            <i className="bx bx-trash bx-md" />
+                          </a>
+                          <Link to="/admin-product-detail" title>
+                            <i className="bx bxs-detail bx-md" />
+                          </Link>
+                        </td>
+                      </tr>)
+                    })}
                   </tbody>
                 </table>
               </div>

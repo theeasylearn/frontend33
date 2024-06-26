@@ -3,11 +3,14 @@ import AdminMenu from "./AdminMenu";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getBase, {getImgBase} from "./api";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import showMessage from "./messages";
 export default function AdminCategory()
 {
   //create state array
   let [categories,setCategory] = useState([]);
-
+  
   // use hook UseEffect 
   useEffect(() => {
       if(categories.length === 0)
@@ -21,11 +24,11 @@ export default function AdminCategory()
             let error = data[0]['error'];
             console.log(error);
             if (error !== 'no')
-              alert(error);
+              showMessage(error);
             else {
               let total = data[1]['total'];
               if (total === 0)
-                alert('no category found');
+                showMessage('no category found');
               else {
                 data.splice(0, 2); //delete 1st two object from array
                 setCategory(data);
@@ -34,7 +37,7 @@ export default function AdminCategory()
           })
           .catch((error) =>{
             if (error.toString().indexOf('NetworkError')>=0)
-                alert('either you are or server is offline');
+              showMessage('either you are or server is offline');
           });
       }  
   });
@@ -43,6 +46,7 @@ export default function AdminCategory()
 		<div className="layout-wrapper layout-content-navbar">
   <div className="layout-container">
     {/* Menu */}
+        <ToastContainer />
         <AdminMenu />
     {/* / Menu */}
     {/* Layout container */}

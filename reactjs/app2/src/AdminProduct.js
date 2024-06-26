@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import getBase, { getImgBase } from './api';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import showMessage from "./messages";
+
 //create state array
 export default function AdminProduct()
 {
@@ -24,12 +28,12 @@ export default function AdminProduct()
           console.log(error);
           if (error !== 'no') {
             //there is some error
-            alert(error);
+            showMessage(error);
           }
           else {
             let total = response.data[1]['total'];
             if (total === 0)
-              alert('no product found');
+              showMessage('no product found');
             else {
               //delete 2object from begining
               response.data.splice(0, 2);
@@ -41,7 +45,7 @@ export default function AdminProduct()
         }).catch((error) => {
           console.log(error);
           if (error['code'] === 'ERR_NETWORK')
-            alert('you are offline (internet is not available) ');
+            showMessage('you are offline (internet is not available) ');
         });
       }  
   }
@@ -51,6 +55,7 @@ export default function AdminProduct()
 <div className="layout-wrapper layout-content-navbar">
   <div className="layout-container">
     {/* Menu */}
+      <ToastContainer />
       <AdminMenu />
     {/* / Menu */}
     {/* Layout container */}

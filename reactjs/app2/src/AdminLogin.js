@@ -1,10 +1,58 @@
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import getBase, { getImgBase } from "./api";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import showMessage,{ERR_MESSAGE} from "./messages";
+import axios from 'axios';
 export default function AdminLogin()
 {
+  //create 2 state variable
+  let [email,setEmail] = useState('');
+  let [password,setPassword] = useState('');
+  let doLogin = function(e)
+  {
+    e.preventDefault(); //required to stop refresh webpage
+    console.log(email,password);
+    let apiAddress = getBase() + "login.php";
+    let form = new FormData();
+    form.append("email",email);
+    form.append("password",password);
+    axios({
+      method:'post',
+      responseType:'json',
+      url:apiAddress,
+      data:form
+    }).then((response) => {
+        console.log(response.data);
+        let error = response.data[0]['error'];
+        if(error!== 'no')
+          showMessage(error);
+        else
+        {
+          let success = response.data[1]['success'];
+          let message = response.data[2]['message'];
+          if(success === 'no')
+          {
+              showMessage(message);
+          }  
+          else 
+          {
+              //login successful
+              showMessage(message,'success');
+          }
+        }
+    }).catch((error) => {
+        if(error.code === 'ERR_NETWORK')
+          showMessage(ERR_MESSAGE);
+
+    })
+  }
 	return(
 		<div className="container-xxl">
       <div className="row">
-        <div className="col-6 offset-3">
+        <ToastContainer />
+        <div className="col-md-6 col-sm-12 offset-md-3">
           <div className="authentication-wrapper authentication-basic container-p-y">
             <div className="authentication-inner">
               {/* Register */}
@@ -21,10 +69,11 @@ export default function AdminLogin()
                   </div>
                   {/* /Logo */}
                   <h4 className="my-4 text-center">Admin Login</h4>
-                  <form id="formAuthentication" className="mb-3" action="index.html" method="POST">
+                  <form id="formAuthentication" className="mb-3" method="POST"
+                  onSubmit={doLogin}>
                     <div className="mb-3">
                       <label htmlFor="email" className="form-label">Email</label>
-                      <input type="text" className="form-control" id="email" name="email-username" placeholder="Enter your email or username" autofocus />
+                      <input type="text" className="form-control" id="email" name="email-username" placeholder="Enter your email or username" autoFocus required value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="mb-3 form-password-toggle">
                       <div className="d-flex justify-content-between">
@@ -34,7 +83,8 @@ export default function AdminLogin()
                         </Link>
                       </div>
                       <div className="input-group input-group-merge">
-                        <input type="password" id="password" className="form-control" name="password" placeholder="············" aria-describedby="password" />
+                        <input type="password" id="password" className="form-control" name="password" required aria-describedby="password"
+                        value={password} onChange={(e) => setPassword(e.target.value)} />
                        
                       </div>
                     </div>

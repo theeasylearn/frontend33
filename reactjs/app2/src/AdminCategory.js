@@ -2,10 +2,10 @@ import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import getBase, {getImgBase} from "./api";
+import getBase, { getImgBase } from "./api";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import showMessage from "./messages";
+import showMessage, { ERR_MESSAGE } from "./messages";
 export default function AdminCategory()
 {
   //create state array
@@ -37,7 +37,7 @@ export default function AdminCategory()
           })
           .catch((error) =>{
             if (error.toString().indexOf('NetworkError')>=0)
-              showMessage('either you are or server is offline');
+              showMessage(ERR_MESSAGE); 
           });
       }  
   });

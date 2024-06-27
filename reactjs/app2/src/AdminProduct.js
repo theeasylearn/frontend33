@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import getBase, { getImgBase } from './api';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import showMessage from "./messages";
+import showMessage, { ERR_MESSAGE } from "./messages";
 
 //create state array
 export default function AdminProduct()
@@ -45,7 +45,7 @@ export default function AdminProduct()
         }).catch((error) => {
           console.log(error);
           if (error['code'] === 'ERR_NETWORK')
-            showMessage('you are offline (internet is not available) ');
+            showMessage(ERR_MESSAGE);
         });
       }  
   }

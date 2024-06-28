@@ -1,20 +1,26 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import getBase, { getImgBase } from "./api";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import showMessage,{ERR_MESSAGE} from "./messages";
 import axios from 'axios';
-export default function AdminLogin()
+import {withCookies,useCookies} from 'react-cookie';
+
+function AdminLogin()
 {
   //create 2 state variable
   let [email,setEmail] = useState('');
   let [password,setPassword] = useState('');
+  //create object of useNaivate
+  let navigate = useNavigate();
+  //create cookies related array & functions 
+  let [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);
   let doLogin = function(e)
   {
     e.preventDefault(); //required to stop refresh webpage
     console.log(email,password);
-    let apiAddress = getBase() + "login.php";
+    let apiAddress = getBase() + "admin_login.php";
     let form = new FormData();
     form.append("email",email);
     form.append("password",password);
@@ -40,6 +46,16 @@ export default function AdminLogin()
           {
               //login successful
               showMessage(message,'success');
+              let userid = response.data[3]['id'];
+              console.log(userid);
+              setCookie('userid',userid); //it will create new cookie userid and store userid variables value in it.
+              console.log('userid',cookies['userid']);
+
+              //we want to pause script execution for 2 seconds
+              setTimeout(() => {
+                 //navigate("/admin-dashboard");
+              },2000);
+
           }
         }
     }).catch((error) => {
@@ -102,3 +118,4 @@ export default function AdminLogin()
 </div>
 	)
 }
+export default withCookies(AdminLogin)

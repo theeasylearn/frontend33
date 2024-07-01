@@ -15,7 +15,7 @@ function AdminLogin()
   //create object of useNaivate
   let navigate = useNavigate();
   //create cookies related array & functions 
-  let [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);
+  let [cookies, setCookie, removeCookie] = useCookies(['theeasylearn']);
   let doLogin = function(e)
   {
     e.preventDefault(); //required to stop refresh webpage
@@ -53,7 +53,7 @@ function AdminLogin()
 
               //we want to pause script execution for 2 seconds
               setTimeout(() => {
-                 //navigate("/admin-dashboard");
+                 navigate("/admin-dashboard");
               },2000);
 
           }

@@ -1,7 +1,10 @@
+import { withCookies } from "react-cookie";
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
-export default function AdminAddCategory()
+import VerifyLogin from "./VerifyLogin";
+function AdminAddCategory()
 {
+    VerifyLogin();
     return (<div className="layout-wrapper layout-content-navbar">
         <div className="layout-container">
             {/* Menu */}
@@ -57,3 +60,4 @@ export default function AdminAddCategory()
     </div>
 );
 }
+export default withCookies(AdminAddCategory);

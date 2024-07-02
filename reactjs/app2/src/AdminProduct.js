@@ -7,10 +7,12 @@ import getBase, { getImgBase } from './api';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import showMessage, { ERR_MESSAGE } from "./messages";
+import VerifyLogin from "./VerifyLogin";
 
 //create state array
 export default function AdminProduct()
 {
+  VerifyLogin();
   let [products, setProduct] = useState([]);
   //create function fetchProduct()
   let fetchProduct = function() {

@@ -6,10 +6,12 @@ import getBase from './api';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import showMessage from "./messages";
-
-export default function AdminDashboard()
+import { withCookies, useCookies } from 'react-cookie';
+import VerifyLogin from './VerifyLogin';
+function AdminDashboard()
 {
-  
+  //create an array and functions for cookies
+  VerifyLogin();
   let [categories,setCategory] = useState();
   let [products,setProducts] = useState();
   let [users,setUsers] = useState();
@@ -138,3 +140,4 @@ export default function AdminDashboard()
 </div>
 	)
 }
+export default withCookies(AdminDashboard);

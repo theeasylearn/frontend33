@@ -1,8 +1,10 @@
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
+import VerifyLogin from "./VerifyLogin";
 
 export default function AdminEditProduct()
 {
+  VerifyLogin();
 	return(
 		<div className="layout-wrapper layout-content-navbar">
   <div className="layout-container">

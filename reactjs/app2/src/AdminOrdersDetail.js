@@ -1,8 +1,10 @@
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
 import { Link } from "react-router-dom";
+import VerifyLogin from "./VerifyLogin";
 export default function AdminOrdersDetail()
 {
+  VerifyLogin();
 	return(
 		<div className="layout-wrapper layout-content-navbar">
   <div className="layout-container">

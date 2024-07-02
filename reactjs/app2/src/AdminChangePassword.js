@@ -8,8 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import showMessage, { ERR_MESSAGE } from "./messages";
 import axios from 'axios';
 import { withCookies, useCookies } from 'react-cookie';
+import VerifyLogin from "./VerifyLogin";
 export default function AdminChangePassword() {
 
+  VerifyLogin();
   //create cookies array and its related  methods 
   let [cookies,setCookie,setMethod] = useCookies(['theeasylearn']);
 
@@ -31,10 +33,9 @@ export default function AdminChangePassword() {
     else 
     {
       //api call 
-      let apiAddress = getBase() + "change_password.php";
+      let apiAddress = getBase() + "admin_change_password.php";
       let form = new FormData();
-
-      form.append("id",cookies['id']);
+      form.append("id",cookies['userid']);
       form.append("password",password);
       form.append("newpassword",newpassword);
       

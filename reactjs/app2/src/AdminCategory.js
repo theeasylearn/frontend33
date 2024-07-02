@@ -6,11 +6,12 @@ import getBase, { getImgBase } from "./api";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import showMessage, { ERR_MESSAGE } from "./messages";
+import VerifyLogin from "./VerifyLogin";
 export default function AdminCategory()
 {
   //create state array
   let [categories,setCategory] = useState([]);
-  
+  VerifyLogin();
   // use hook UseEffect 
   useEffect(() => {
       if(categories.length === 0)

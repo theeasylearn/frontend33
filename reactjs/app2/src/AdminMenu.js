@@ -48,7 +48,7 @@ export default function AdminMenu() {
                     </Link>
                 </li>
                 <li className="menu-item">
-                    <Link to="#" className="menu-link border shadow-sm">
+                    <Link to="/admin-logout" className="menu-link border shadow-sm">
                         <i className="bx bxs-exit" /> Logout
                     </Link>
                 </li>

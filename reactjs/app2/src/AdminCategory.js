@@ -9,6 +9,14 @@ import showMessage, { ERR_MESSAGE } from "./messages";
 import VerifyLogin from "./VerifyLogin";
 export default function AdminCategory()
 {
+  /*
+    api www.theeasylearnacademy.com/shop/ws/delete_category.php
+    input : id (required) 
+    method : get
+        [{"error":"input is missing"}] 
+        [{"error":"no"},{"message":"Category Deleted"}]
+*/
+
   //create state array
   let [categories,setCategory] = useState([]);
   VerifyLogin();

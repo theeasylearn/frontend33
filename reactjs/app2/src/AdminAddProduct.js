@@ -21,6 +21,7 @@ export default function AdminAddProduct() {
     let [size, setSize] = useState('');
     let [isLive, setIsLive] = useState(false);
     let [detail, setDetail] = useState('');
+    let navigate = useNavigate();
     VerifyLogin();
     let fetchCategories = function () {
         if (categories.length === 0) {
@@ -55,9 +56,50 @@ export default function AdminAddProduct() {
     {
         e.preventDefault(); //to stop refershing page
         //print state variables 
-        
+        console.log(title,photo,price,stock,weight,size,isLive,detail,category);
+        //api call
+        let apiAddress = getBase() + "insert_product.php";
+        let form = new FormData();
+        form.append("name", title);
+        form.append("price", price);
+        form.append("photo", photo);
+        form.append("stock", stock);
+        form.append("weight", weight);
+        form.append("size", size);
+        form.append("islive", isLive);
+        form.append("detail", detail);
+        form.append("categoryid",category);
+        axios({
+            method:'post',
+            url:apiAddress,
+            responseType:'json',
+            data:form
+        }).then((response) => {
+            console.log(response.data);
+            let error = response.data[0]['error'];
+            if(error != 'no')
+                showMessage(error);
+            else 
+            {
+                let success = response.data[1]['success'];
+                let message = response.data[2]['message'];
+                if(success === 'no')
+                    showMessage(message);
+                else 
+                {
+                    showMessage(message,'success');
+                    setTimeout(()=>{
+                        navigate("/admin-product");
+                    },2000);
+                }
+            }
+        }).catch((error) => {
+            if(error.code === 'ERR_NETWORK')
+                showMessage(ERR_MESSAGE);
+        })
     }
-    useEffect(() => fetchCategories())
+    useEffect(() => fetchCategories());
+
     return (<div className="layout-wrapper layout-content-navbar">
         <div className="layout-container">
             {/* Menu */}
@@ -83,8 +125,8 @@ export default function AdminAddProduct() {
                                         {/* Category */}
                                         <div className="col-md-4">
                                             <label htmlFor="category" className="form-label">Category</label>
-                                            <select id="category" className="form-select" required>
-                                                <option value>Select Category</option>
+                                            <select id="category" className="form-select" required onChange={(e) => setCategory(e.target.value)}>
+                                                <option value=''>Select Category</option>
                                                 {categories.map((item) => {
                                                     return (<option value={item['id']}>{item['title']}</option>)
                                                 })}

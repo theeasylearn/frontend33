@@ -2,8 +2,14 @@ import { withCookies } from "react-cookie";
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
 import VerifyLogin from "./VerifyLogin";
-function AdminAddCategory()
-{
+/*
+    api www.theeasylearnacademy.com/shop/ws/insert_category.php
+    input : title,photo,islive (required) 
+    method :post
+        [{"error":"input is missing"}] 
+        [{"error":"no"},{"success":"yes"},{"message":"category inserted"}]
+*/
+function AdminAddCategory() {
     VerifyLogin();
     return (<div className="layout-wrapper layout-content-navbar">
         <div className="layout-container">
@@ -13,7 +19,7 @@ function AdminAddCategory()
             {/* Layout container */}
             <div className="layout-page">
                 {/* Navbar */}
-                    <AdminHeader title='Category Management' />
+                <AdminHeader title='Category Management' />
                 {/* / Navbar */}
                 {/* Content wrapper */}
                 <div className="content-wrapper">
@@ -58,6 +64,6 @@ function AdminAddCategory()
         </div>
         <div className="layout-overlay layout-menu-toggle" />
     </div>
-);
+    );
 }
 export default withCookies(AdminAddCategory);

@@ -132,7 +132,8 @@ export default function AdminProduct() {
                               <Link title="delete" onClick={() => deleteProduct(item['id'])}>
                                 <i className="bx bx-trash bx-md" />
                               </Link>
-                              <Link to="/admin-product-detail" title>
+                              {/* dynamic route (route with input) */}
+                              <Link to={"/admin-product-detail/" + item['id']} title>
                                 <i className="bx bxs-detail bx-md" />
                               </Link>
                             </td>

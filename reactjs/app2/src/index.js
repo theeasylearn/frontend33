@@ -32,7 +32,9 @@ function MyRouter()
             <Route path='/admin-product' element={<AdminProduct />} />
             <Route path='/admin-add-product' element={<AdminAddProduct />} />
             <Route path='/admin-edit-product' element={<AdminEditProduct />} />
-            <Route path='/admin-product-detail' element={<AdminProductDetail />} />
+            {/* this is how we declare dynamic route */}
+            
+            <Route path='/admin-product-detail/:productid' element={<AdminProductDetail />} />
             <Route path='/admin-category' element={<AdminCategory />} />
             <Route path='/admin-add-category' element={<AdminAddCategory />} />
             <Route path='/admin-edit-category' element={<AdminEditCategory />} />

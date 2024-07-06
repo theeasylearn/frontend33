@@ -69,6 +69,7 @@ export default function AdminAddProduct() {
         form.append("islive", isLive);
         form.append("detail", detail);
         form.append("categoryid",category);
+        console.log(form);
         axios({
             method:'post',
             url:apiAddress,
@@ -176,11 +177,11 @@ export default function AdminAddProduct() {
                                         <div className="col-md-3">
                                             <label className="form-label">Is Live</label>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="radio" name="islive" id="liveYes" value="1" required onChange={(e) => setIsLive(e.target.value)} />
+                                                <input className="form-check-input" type="radio" name="islive" id="liveYes" value="1" required onChange={(e) => setIsLive('1')} />
                                                 <label className="form-check-label" htmlFor="liveYes">Yes</label>
                                             </div>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="radio" name="islive" id="liveNo" value="0" required onChange={(e) => setIsLive(e.target.value)} />
+                                                <input className="form-check-input" type="radio" name="islive" id="liveNo" value="0" required onChange={(e) => setIsLive('0')} />
                                                 <label className="form-check-label" htmlFor="liveNo">No</label>
                                             </div>
                                         </div>

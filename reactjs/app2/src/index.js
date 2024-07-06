@@ -31,7 +31,7 @@ function MyRouter()
             <Route path='/admin-dashboard' element={<AdminDashboard />} />
             <Route path='/admin-product' element={<AdminProduct />} />
             <Route path='/admin-add-product' element={<AdminAddProduct />} />
-            <Route path='/admin-edit-product' element={<AdminEditProduct />} />
+            <Route path='/admin-edit-product/:productid' element={<AdminEditProduct />} />
             {/* this is how we declare dynamic route */}
             
             <Route path='/admin-product-detail/:productid' element={<AdminProductDetail />} />

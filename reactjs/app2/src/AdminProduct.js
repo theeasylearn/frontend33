@@ -126,7 +126,7 @@ export default function AdminProduct() {
                             <td>{item['price']}</td>
                             <td>{(item['islive'] === '1') ? "yes" : "no"}</td>
                             <td>
-                              <Link title="edit" to="/admin-edit-product">
+                              <Link title="edit" to={"/admin-edit-product/" + item['id']}>
                                 <i className="bx bx-edit bx-md" />
                               </Link>
                               <Link title="delete" onClick={() => deleteProduct(item['id'])}>

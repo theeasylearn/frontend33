@@ -90,7 +90,7 @@ export default function AdminAddProduct() {
                 {
                     showMessage(message,'success');
                     setTimeout(()=>{
-                        navigate("/admin-product");
+                        //navigate("/admin-product");
                     },2000);
                 }
             }

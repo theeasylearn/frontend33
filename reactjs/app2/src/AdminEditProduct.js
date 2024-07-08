@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
 import VerifyLogin from "./VerifyLogin";
@@ -16,13 +16,14 @@ export default function AdminEditProduct() {
   let [categories, setCategories] = useState([]); //used to store categories fetched by api
   let [title, setTitle] = useState('');
   let [photo, setPhoto] = useState(null); // Assuming photo is a file or URL
+  let [oldPhoto, setOldPhoto] = useState(''); // Assuming photo is a file or URL
   let [price, setPrice] = useState(0);
   let [stock, setStock] = useState(0);
   let [weight, setWeight] = useState(0);
   let [size, setSize] = useState('');
   let [isLive, setIsLive] = useState(false);
   let [detail, setDetail] = useState('');
-  let [isFetched,setIsFetched] = useState(false);
+  let [isFetched, setIsFetched] = useState(false);
   let navigate = useNavigate();
 
   let fetchSingleProduct = function () {
@@ -47,7 +48,7 @@ export default function AdminEditProduct() {
               //store remaining 2nd object's properties into corresponding state variables
               setTitle(response.data[2]['title']);
               setPrice(response.data[2]['price']);
-              setPhoto(response.data[2]['photo']);
+              setOldPhoto(response.data[2]['photo']);
               setStock(response.data[2]['stock']);
               setWeight(response.data[2]['weight']);
               setSize(response.data[2]['size']);
@@ -97,7 +98,14 @@ export default function AdminEditProduct() {
   useEffect(() => {
     fetchCategories();
     fetchSingleProduct();
+
   });
+  let updateProduct = function (e) {
+    e.preventDefault();
+    console.log(title, photo, price, stock, weight, size, isLive, detail, category);
+    let apiAddress = getBase() + "update_product.php";
+    
+  }
   return (
     <div className="layout-wrapper layout-content-navbar">
       <div className="layout-container">
@@ -121,7 +129,7 @@ export default function AdminEditProduct() {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-lg-10">
-                      <form>
+                      <form onSubmit={updateProduct}>
                         <div className="row mb-3 mt-3">
                           {/* Category */}
                           <div className="col-md-4">
@@ -129,7 +137,11 @@ export default function AdminEditProduct() {
                             <select id="category" className="form-select" required onChange={(e) => setCategory(e.target.value)}>
                               <option value=''>Select Category</option>
                               {categories.map((item) => {
-                                return (<option value={item['id']}>{item['title']}</option>)
+                                // alert(item['id']+ " " + category);
+                                if (item['id'] == category)
+                                  return <option selected value={item['id']}>{item['title']}</option>
+                                else
+                                  return <option value={item['id']}>{item['title']}</option>
                               })}
                             </select>
                           </div>
@@ -142,8 +154,8 @@ export default function AdminEditProduct() {
                           {/* Photo */}
                           <div className="col-md-4">
                             <label htmlFor="photo" className="form-label">Photo</label>
-                            <input type="file" className="form-control" id="photo" accept="image/*" required 
-                              onChange={(e) => setPhoto(e.target.files[0])}/>
+                            <input type="file" className="form-control" id="photo" accept="image/*" required
+                              onChange={(e) => setPhoto(e.target.files[0])} />
                           </div>
                         </div>
                         <div className="row mb-3">
@@ -177,7 +189,7 @@ export default function AdminEditProduct() {
                           <div className="col-md-3">
                             <label className="form-label">Is Live</label>
                             <div className="form-check">
-                              <input className="form-check-input" type="radio" name="islive" id="liveYes" defaultValue="yes" value="1" required onChange={(e) => setIsLive(e.target.value)} checked={isLive==='1'} />
+                              <input className="form-check-input" type="radio" name="islive" id="liveYes" defaultValue="yes" value="1" required onChange={(e) => setIsLive(e.target.value)} checked={isLive === '1'} />
                               <label className="form-check-label" htmlFor="liveYes">Yes</label>
                             </div>
                             <div className="form-check">
@@ -201,7 +213,7 @@ export default function AdminEditProduct() {
                     </div>
                     <div className="col-lg-2 pt-4">
                       <b>Existing photo</b>
-                      <img src="https://picsum.photos/200" className="img-fluid " />
+                      <img src={getImgBase() + "product/" + oldPhoto} className="img-fluid " />
                     </div>
                   </div>
                 </div>

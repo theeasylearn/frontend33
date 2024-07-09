@@ -1,7 +1,13 @@
 import AdminHeader from "./AdminHeader";
 import AdminMenu from "./AdminMenu";
 import VerifyLogin from "./VerifyLogin";
-
+/*
+    http://www.theeasylearnacademy.com/shop/ws/update_category.php
+    method: post,
+    input, id,title,photo,islive (required)
+    [{"error":"input is missing"}] 
+    [{"error":"no"},{"success":"yes"},{"message":"category updated"}]
+*/
 export default function AdminEditCategory()
 {
   VerifyLogin();

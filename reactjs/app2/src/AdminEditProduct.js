@@ -104,7 +104,44 @@ export default function AdminEditProduct() {
     e.preventDefault();
     console.log(title, photo, price, stock, weight, size, isLive, detail, category);
     let apiAddress = getBase() + "update_product.php";
-    
+    let form = new FormData();
+    form.append("name", title);
+    form.append("price", price);
+    form.append("stock", stock);
+    form.append("weight", weight);
+    form.append("size", size);
+    form.append("islive", isLive);
+    form.append("detail", detail);
+    form.append("categoryid", category);
+    form.append("productid", productid);
+    form.append("photo", photo);
+    console.log(form);
+    axios({
+      method: 'post',
+      responseType: 'json',
+      url: apiAddress,
+      data: form
+    }).then((response) => {
+      console.log(response.data);
+      let error = response.data[0]['error'];
+      if (error != 'no')
+        showMessage(error);
+      else {
+        let success = response.data[1]['success'];
+        let message = response.data[2]['message'];
+        if (success === 'no')
+          showMessage(message);
+        else {
+          showMessage(message, 'success');
+          setTimeout(() => {
+            navigate("/admin-product");
+          }, 2000);
+        }
+      }
+    }).catch((error) => {
+      if (error.code === 'ERR_NETWORK')
+        showMessage(ERR_MESSAGE);
+    })
   }
   return (
     <div className="layout-wrapper layout-content-navbar">

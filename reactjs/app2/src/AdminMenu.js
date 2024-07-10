@@ -11,7 +11,7 @@ export default function AdminMenu() {
                     <span className="app-brand-text demo menu-text fw-bolder ms-2">Online shop</span>
                 </Link>
                 <Link to="#" className="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-                    <i className="bx bx-chevron-left bx-sm align-middle" />
+                    <i className="bx bx-chevron-left bx-sm align-middle" onClick={() => hideMenu()} />
                 </Link>
             </div>
             <div className="menu-inner-shadow" />

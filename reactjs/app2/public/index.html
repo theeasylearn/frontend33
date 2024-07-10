@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="myhtml" lang="en" className="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
+  data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
   <meta charset="utf-8" />
@@ -22,25 +23,33 @@
   <link rel="stylesheet" href="%PUBLIC_URL%/admin/assets/vendor/css/theme-default.css"
     class="template-customizer-theme-css" />
   <link rel="stylesheet" href="%PUBLIC_URL%/admin/assets/css/demo.css" />
+  <script src="%PUBLIC_URL%/admin/assets/js/config.js"></script>
+  <script src="%PUBLIC_URL%/admin/assets/vendor/js/helpers.js"></script>
   <link rel="stylesheet" href="%PUBLIC_URL%/admin/lightbox/css/lightbox.min.css">
 
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="%PUBLIC_URL%/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+  <script>
+    function showMenu() {
+      document.getElementById('myhtml').classList.toggle('layout-menu-expanded');
+    }
+    function hideMenu() {
+      document.getElementById('myhtml').classList.toggle('layout-menu-expanded');
+    }
+  </script>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <!-- <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-        <script src="../assets/vendor/libs/popper/popper.js"></script> -->
+  <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="../assets/vendor/libs/popper/popper.js"></script>
   <script src="%PUBLIC_URL%/admin/assets/vendor/js/bootstrap.js"></script>
   <script src="%PUBLIC_URL%/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
   <script src="%PUBLIC_URL%/admin/assets/vendor/js/menu.js"></script>
-  <script src="%PUBLIC_URL%/admin/assets/js/config.js"></script>
   <script src="%PUBLIC_URL%/admin/lightbox/js/lightbox-plus-jquery.min.js"></script>
-  <script src="%PUBLIC_URL%/admin/assets/vendor/js/helpers.js"></script>
   <script src="%PUBLIC_URL%/admin/assets/js/main.js"></script>
-  
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 class Menu extends React.Component {
     render() {
         return (
@@ -36,15 +37,36 @@ class Menu extends React.Component {
                                 <a href="index.html"><img src="./shop/assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template" /></a>
                                 <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" />
                             </div>
-                            <div className="offcanvas-body">
+                    
                                 <div>
-                                    <ul className="navbar-nav align-items-center navbar-offcanvas-color">
+                                    <ul className="navbar-nav d-flex justify-content-end">
                                         <li className="nav-item">
-                                            <a className="nav-link" href="../dashboard/index.html">Dashboard</a>
+                                            <Link className="nav-link" to="/">Home</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/product">Product</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/cart">Cart</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/checkout">Checkout</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/change-password">Change password</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/login">Login</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/register">Register</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="">Logout</Link>
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </nav>

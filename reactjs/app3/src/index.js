@@ -19,7 +19,8 @@ function MyRouter()
         <BrowserRouter>
             <Routes>
                 <Route index path='/' element={<Home />} />
-                <Route path='/product' element={<Product />} />
+                <Route path='/product/' element={<Product />} />
+                <Route path='/product/:categoryid' element={<Product />} />
                 <Route path='/product-single' element={<SingleProduct />} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/checkout' element={<Checkout />} />

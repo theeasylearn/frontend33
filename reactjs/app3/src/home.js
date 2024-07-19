@@ -59,14 +59,14 @@ class Home extends React.Component {
         <div className="container mt-5">
           <ToastContainer />
           <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-6">
-              {this.state.categories.map((item) => {
-                return (<div className="col">
+              {this.state.categories.map((item,index) => {
+                return (<div className="col" key={index}>
                   <Link to={"/product/" + item['id']} className="text-decoration-none text-inherit">
                     {/* card */}
                     <div className="card card-product  shadow">
                       <div className="card-body text-center py-8">
                         {/* img */}
-                        <img src={getImgBase() + "category/" + item['photo']} alt="Grocery Ecommerce Template" className="img-fluid mb-3" />
+                        <img src={getImgBase() + "category/" + item['photo']}  className="img-fluid mb-3" />
                         {/* text */}
                         <div className="text-truncate">{item['title']}</div>
                       </div>

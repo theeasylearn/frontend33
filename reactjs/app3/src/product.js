@@ -3,10 +3,11 @@ import Menu from './menu'
 import Footer from './footer'
 import getBase, { getImgBase } from './api';
 import axios from 'axios';
-import showMessage, { ERR_MESSAGE } from './messages';
 import { ToastContainer } from 'react-toastify';
+import showMessage, { ERR_MESSAGE } from './messages';
 import 'react-toastify/dist/ReactToastify.css';
 import withHooks from './myhooks';
+import { Link } from 'react-router-dom';
 class Product extends React.Component {
   constructor(props) {
     super(props);
@@ -17,10 +18,16 @@ class Product extends React.Component {
   }
 
   componentDidMount() {
-    const {params} = this.props;
-    console.log(params);
-    
-    let apiAddress = getBase() + "product.php";
+    let {params} = this.props;
+    // console.log(params);
+    let {categoryid}  = params;
+    // console.log(categoryid);
+    let apiAddress;
+    if(categoryid === undefined)
+      apiAddress = getBase() + "product.php";
+    else 
+      apiAddress = getBase() + "product.php?categoryid=" + categoryid;
+
     axios({
       method: 'get',
       responseType: 'json',
@@ -43,22 +50,21 @@ class Product extends React.Component {
         showMessage(ERR_MESSAGE);
     })
   }
-  display = (item) =>
+  display = (item,index) =>
   {
-    return (<div className="col ">
+    return (<div className="col" key={index}>
       {/* card product */}
       <div className="card card-product">
         <div className="card-body">
           {/* badge */}
           <div className="text-center position-relative">
-            <a href="shop-single.html">
+            <Link to={"/product-single/" + item['id']}>
               {/* img */}
               <img src={getImgBase() + "product/" + item['photo']} alt="Grocery Ecommerce Template" className="mb-3 img-fluid" />
-            </a>
+            </Link>
             {/* action btn */}
            
           </div>
-          {/* heading */}
 
           <h2 className="fs-6"><a href="shop-single.html" className="text-inherit text-decoration-none">{item['title']}</a></h2>
 
@@ -87,16 +93,12 @@ class Product extends React.Component {
     return (<div>
       <Menu />
       <main>
-        <div className="container mb-2">
+        <div className="container mb-2 mt-3">
           <ToastContainer />
-          <div className="row">
-            <div className="col-12">
-              <h3 className="my-5">heading</h3>
-            </div>
-          </div>
+        
           <div className="row g-4 row-cols-lg-5 row-cols-2 row-cols-md-3">
             {/* col */}
-            {this.state.products.map((item) => this.display(item))}
+            {this.state.products.map((item,index) => this.display(item,index))}
 
           </div>
         </div>

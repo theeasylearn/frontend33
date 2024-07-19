@@ -19,9 +19,12 @@ function MyRouter()
         <BrowserRouter>
             <Routes>
                 <Route index path='/' element={<Home />} />
+                {/* static route */}
                 <Route path='/product/' element={<Product />} />
+                {/* dynamic route */}
                 <Route path='/product/:categoryid' element={<Product />} />
-                <Route path='/product-single' element={<SingleProduct />} />
+                {/* dynamic route */}
+                <Route path='/product-single/:productid' element={<SingleProduct />} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/checkout' element={<Checkout />} />
                 <Route path='/login' element={<Login />} />

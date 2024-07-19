@@ -10,12 +10,12 @@ class Menu extends React.Component {
                             <div className="col-xxl-9 col-lg-8">
                                 <div className="d-flex align-items-center">
                                     <a className="navbar-brand d-none d-lg-block" href="../index.html">
-                                        <img src="./shop/assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template" />
+                                        <img src="/shop/assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template" />
                                     </a>
                                 </div>
                                 <div className="d-flex justify-content-between w-100 d-lg-none">
                                     <a className="navbar-brand" href="../index.html">
-                                        <img src="./shop/assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template" />
+                                        <img src="/shop/assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template" />
                                     </a>
                                     <div className="d-flex align-items-center lh-1">
                                         {/* Menu Button */}

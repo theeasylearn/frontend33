@@ -45,6 +45,11 @@ class Register extends React.Component {
                 else if (response.data[1]['success'] === 'yes')
                 {
                     showMessage(response.data[2]['message'], 'success');
+                    //change screen/redirect user to login screen
+                    setTimeout(() => {
+                        let { navigate } = this.props;
+                        navigate("/login");
+                    },2000)
                 }
 
             }).catch((error) => {
@@ -117,4 +122,4 @@ class Register extends React.Component {
         );
     }
 }
-export default Register;
+export default withHooks(Register);

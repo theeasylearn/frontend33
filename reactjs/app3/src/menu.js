@@ -1,6 +1,50 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import withHooks from "./myhooks";
 class Menu extends React.Component {
+    showEmail = () => {
+        let { cookies } = this.props;
+        if (cookies['email'] !== undefined)
+            return "welcome " + cookies['email'];
+        else
+            return "";
+    }
+    userLinks = () => {
+        let { cookies } = this.props;
+        if (cookies['userid'] !== undefined)
+        {
+            return (<>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/cart">Cart</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/checkout">Checkout</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/change-password">Change password</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="">Logout</Link>
+                </li>
+            </>)
+        }
+       
+    }
+    guestLinks = () => {
+        let { cookies } = this.props;
+        if (cookies['userid'] === undefined) {
+            return (<>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/login">Login</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/register">Register</Link>
+                </li>
+
+            </>)
+        }
+
+    }
     render() {
         return (
             <div>
@@ -37,36 +81,23 @@ class Menu extends React.Component {
                                 <a href="index.html"><img src="./shop/assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template" /></a>
                                 <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" />
                             </div>
-                    
-                                <div>
-                                    <ul className="navbar-nav d-flex justify-content-end">
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/">Home</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/product">Product</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/cart">Cart</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/checkout">Checkout</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/change-password">Change password</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/login">Login</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/register">Register</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="">Logout</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            
+
+                            <div className="d-flex justify-content-between align-content-center">
+                                <h6 className="text-white mt-3"> {this.showEmail()}</h6>
+                                <uls className="navbar-nav d-flex justify-content-end">
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/">Home</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/product">Product</Link>
+                                    </li>
+                                    {this.userLinks()}
+                                    {this.guestLinks()}
+
+                                   
+                                </uls>
+                            </div>
+
                         </div>
                     </div>
                 </nav>
@@ -75,4 +106,4 @@ class Menu extends React.Component {
         );
     }
 }
-export default Menu;
+export default withHooks(Menu);

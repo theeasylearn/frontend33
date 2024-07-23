@@ -49,7 +49,17 @@ class Login extends React.Component {
                 else 
                 {
                     showMessage(message,'success');
+                    let id = response.data[3]['id'];
+                    let { navigate, setCookie, cookies } = this.props;
+                    //create cookies
+                    setCookie("userid",id);
+                    setCookie("email",this.state.email);
+                    //redirect to home 
                     
+                    setTimeout(() => {
+                       navigate("/");     
+                    }, 2000);
+
                 }
 
             }
@@ -114,4 +124,4 @@ class Login extends React.Component {
         );
     }
 }
-export default Login;
+export default withHooks(Login);

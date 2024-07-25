@@ -9,6 +9,7 @@ import Cart from './cart';
 import Checkout from './checkout';
 import ForgotPassword from './forgot_password';
 import Product from './product';
+import Logout from './logout';
 import PageNotFound from './page_not_found';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -31,6 +32,7 @@ function MyRouter()
                 <Route path='/register' element={<Register />} />
                 <Route path='/change-password' element={<ChangePassword />} />
                 <Route path='/forgot-password' element={<ForgotPassword />} />
+                <Route path='/logout' element={<Logout />} />
                 <Route path='*' element={<PageNotFound />} />
             </Routes>
         </BrowserRouter>

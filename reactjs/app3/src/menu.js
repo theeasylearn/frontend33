@@ -24,7 +24,7 @@ class Menu extends React.Component {
                     <Link className="nav-link" to="/change-password">Change password</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="">Logout</Link>
+                    <Link className="nav-link" to="/logout">Logout</Link>
                 </li>
             </>)
         }

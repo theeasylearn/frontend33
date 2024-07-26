@@ -50,6 +50,28 @@ class Product extends React.Component {
         showMessage(ERR_MESSAGE);
     })
   }
+
+  addtoCart = (productid) => {
+    let { cookies } = this.props;
+
+    let apiAddress = getBase() + "add_to_cart.php?productid=" + productid + "&usersid=" + cookies['userid'];
+    console.log(apiAddress);
+    axios({
+      method:'post',
+      url:apiAddress,
+      responseType:'json'
+    }).then((response) => {
+        let error = response.data[0]['error'];
+        if(error!=='no')
+        {
+          showMessage(error);
+        }
+        else 
+        {
+          showMessage(response.data[1]['message'],'success');
+        }
+    })
+  }
   display = (item,index) =>
   {
     return (<div className="col" key={index}>

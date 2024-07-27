@@ -52,7 +52,41 @@ class Cart extends React.Component {
       }
     })
   }
-
+  deleteFromcart = (cartid) => {
+  let apiAddress = getBase() + "delete_from_cart.php?cartid=" + cartid;
+    axios({
+      method:'get',
+      responseType:'json',
+      url:apiAddress
+    }).then((response) => {
+      console.log(response.data);
+      let error = response.data[0]['error'];
+      if(error !== 'no')
+          showMessage(error);
+      else 
+      {
+        showMessage(response.data[1]['message']);
+        //below code removed product from ui(required)
+        var temptotal = 0
+        var temp = this.state.products.filter((item) => {
+         //   console.log(item,cartid);
+            if(item['cartid'] !== cartid)
+            {
+                return item;
+            }
+            else 
+            {
+              temptotal = parseInt(item['price']) * parseInt(item['quantity']);
+            }
+        }); 
+        // console.log(temp);
+        this.setState({
+            products:temp,
+            GrandTotal: this.state.GrandTotal - temptotal
+        });
+      }
+    })
+  }
   display = (item) => {
     return (<div className="col-12">
       <ul className="list-group list-group-flush">
@@ -71,7 +105,8 @@ class Cart extends React.Component {
                   </a>
                   {/* text */}
                   <div className="mt-2 small lh-1">
-                    <button type="button" className="btn btn-danger btn-sm">Remove</button>
+                    <button type="button" className="btn btn-danger btn-sm"
+                    onClick={() => this.deleteFromcart(item['cartid'])}>Remove</button>
                   </div>
                 </div>
               </div>

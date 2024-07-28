@@ -5,7 +5,7 @@ types of users
 	Admin
 	Doctor
 	Assitant 
-	Registered User 
+	Registered User (patient)
 1) Admin 
 	Login
 	Forgot password 
@@ -18,7 +18,7 @@ types of users
 			- View Appointment 
 2) Doctor
 	Login
-	Register 
+	Register (create new account)
 	Change password
 	Forgot password 
 	Update Profile
@@ -50,8 +50,8 @@ types of users
 		
 Task to do 
 --------------------------
-	1) 1 theme for admin,Doctor & assitant 
-	2) 1 theme for Register user 
+	1) 1 theme for admin,Doctor & assitant (admin template)
+	2) 1 theme for Register user (search for doctor appointment theme bootstrap 5)
 	3) approval for theme from ankit 
 	4) after approval design pages as html pages 
 	5) publish project on github 

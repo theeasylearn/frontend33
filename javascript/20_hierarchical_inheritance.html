@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hierarchical inheritance</h1>
+    <h2 id="area1"></h2>
+    <h3 id="area2"></h3>
+    <hr>
+    <script>
+        class MyMath
+        {
+            getPi()
+            {
+                return 3.141516;
+            }
+            getSquare(number)
+            {
+                //temp is local variable
+                let temp = number * number;
+                return temp;
+            }
+        }
+        class Circle extends MyMath
+        {
+            constructor(radius)
+            {
+                super(); //calling non existing parent class constructor required
+                this.radius = radius;
+            }
+            getArea()
+            {
+                //pi*r*r
+                let area = super.getPi() * this.radius * this.radius;
+                return area.toFixed(2);
+            }
+        }
+        class Cyliender extends MyMath
+        {
+            constructor(radius,height)
+            {
+                super();  //calling non existing parent class constructor required
+                this.radius = radius;
+                this.height = height;
+            }
+            getArea()
+            {
+                //2 * pi * r * h
+                let temp = 2 * super.getPi() * this.radius * this.height;
+                return temp.toFixed(2);
+            }
+        }
+        var radius = parseInt(prompt("Enter radius"));
+        var c1 = new Circle(radius);
+
+        var height = parseInt(prompt("Enter height"));
+        var c2 = new Cyliender(radius,height);
+
+        //get circle area
+        let area = c1.getArea();
+        let area2 = c2.getArea();
+
+        document.getElementById('area1').innerHTML = `circle area = ${area}`;
+        document.getElementById('area2').innerHTML = `cyliender area = ${area2}`;
+    </script>
+</body>
+</html>

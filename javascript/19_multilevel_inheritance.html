@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>multi-level inheritance</h1>
+    <hr>
+    <p>use console to check output</p>
+    <script>
+        //create parent class using es6 way
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+            walk() {
+                console.log(`${this.name} can walk`);
+            }
+            talk() {
+                console.log(`${this.name} can talk`);
+            }
+        }
+        //create child class using inheritance
+        class Student extends Person {
+            //child class must have constructor if parent class has constructor
+            constructor(name, language) {
+                super(name); //call parent class constructor from child class (compulsory)
+                this.language = language;
+            }
+            write() {
+                console.log(`${this.name} can write in ${this.language}`);
+            }
+            read() {
+                console.log(`${this.name} can read in ${this.language}`);
+            }
+            whatICanDo() {
+                console.log("-----------------------------------------");
+                super.walk(); //call parent class method use super
+                super.talk(); //call parent class method use super
+                this.write(); //call cirremt class method this super
+                this.read(); //call cirremt class method this super
+            }
+        }
+        //class developer inherit derived class Student therefore it is multi-level inheritance
+        class Developer extends Student {
+            //child class must have constructor if parent class has constructor
+            constructor(name, language, platform) {
+                super(name, language); //call parent class constructor from child class (compulsory)
+                this.platform = platform;
+            }
+            code()
+            {
+                console.log(`${this.name} can code in ${this.platform}`);
+            }
+            debug()
+            {
+                console.log(`${this.name} can debug code in ${this.platform}`);
+            }
+            //method overridding
+            whatICanDo()
+            {
+                super.whatICanDo(); 
+                this.code();
+                this.debug();
+            }
+        }
+        var name = prompt("what is your name","");
+        var language = prompt("what is your language");
+        var platform = prompt("what is your platform");
+
+        //create object of child class
+        var d1 = new Developer(name,language,platform);
+        d1.whatICanDo();
+    </script>
+</body>
+
+</html>

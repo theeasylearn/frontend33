@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
+    data-template="vertical-menu-template-free">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>online shop</title>
+    <meta name="description" content="" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+   
+</head>
+
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo">
+                    <a href="index.html" class="app-brand-link">
+                        <span class="app-brand-logo demo">
+                          <img src="../assets/img/logo.png" alt="">
+                        </span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Online shop</span>
+                    </a>
+
+                    <a href="javascript:void(0);"
+                        class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
+                    </a>
+                </div>
+
+                <div class="menu-inner-shadow"></div>
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item">
+                        <a href="admin-dashboard.html" class="menu-link border shadow-sm">
+                            <i class='bx bxs-tachometer'></i> Dashboard
+                        </a>
+                    </li>
+                <li class="menu-item">
+                    <a href="admin-category.html" class="menu-link border shadow-sm">
+                        <i class='bx bxs-purchase-tag-alt'></i> Categories
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-product.html" class="menu-link border shadow-sm">
+                        <i class='bx bxs-box'></i> Products
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-orders.html" class="menu-link border shadow-sm">
+                        <i class='bx bxs-cart'></i> Orders
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-users.html" class="menu-link border shadow-sm">
+                        <i class='bx bxs-user'></i> Customers
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-change-password.html" class="menu-link border shadow-sm">
+                        <i class='bx bxs-lock'></i> Change password
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link border shadow-sm">
+                        <i class='bx bxs-exit'></i> Logout
+                    </a>
+                </li>
+
+                </ul>
+            </aside>
+            <!-- / Menu -->
+
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                    id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                            <i class="bx bx-menu bx-sm"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-nav-right" id="navbar-collapse">
+                        <h4 class="my-2">Product management</h4>
+                    </div>
+                </nav>
+
+                <!-- / Navbar -->
+
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="card shadow">
+                            <div class="card-header bg-primary p-3 d-flex justify-content-between">
+                                <h4 class="text-white mb-0">Add new product</h4>
+                                <a href="admin-product.html" class="btn btn-light">back</a>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row mb-3 mt-3">
+                                        <!-- Category -->
+                                        <div class="col-md-4">
+                                            <label for="category" class="form-label">Category</label>
+                                            <select id="category" class="form-select" required>
+                                                <option value="">Select Category</option>
+                                                <option value="1">Category 1</option>
+                                                <option value="2">Category 2</option>
+                                                <option value="3">Category 3</option>
+                                            </select>
+                                        </div>
+                                        <!-- Title -->
+                                        <div class="col-md-4">
+                                            <label for="title" class="form-label">Title</label>
+                                            <input type="text" class="form-control" id="title" required>
+                                        </div>
+                                        <!-- Photo -->
+                                        <div class="col-md-4">
+                                            <label for="photo" class="form-label">Photo</label>
+                                            <input type="file" class="form-control" id="photo" accept="image/*" required>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="row mb-3">
+                                        <!-- Price -->
+                                        <div class="col-md-3">
+                                            <label for="price" class="form-label">Price</label>
+                                            <input type="number" class="form-control" id="price" required>
+                                        </div>
+                                        <!-- Stock -->
+                                        <div class="col-md-3">
+                                            <label for="stock" class="form-label">Stock</label>
+                                            <input type="number" class="form-control" id="stock" required>
+                                        </div>
+                                        <!-- Weight -->
+                                        <div class="col-md-3">
+                                            <label for="weight" class="form-label">Weight</label>
+                                            <input type="text" class="form-control" id="weight" required>
+                                        </div>
+                                        <!-- Size -->
+                                        <div class="col-md-3">
+                                            <label for="size" class="form-label">Size</label>
+                                            <input type="text" class="form-control" id="size" required>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="row mb-3">
+                                        <!-- Is Live -->
+                                        <div class="col-md-3">
+                                            <label class="form-label">Is Live</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="islive" id="liveYes" value="yes" required>
+                                                <label class="form-check-label" for="liveYes">Yes</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="islive" id="liveNo" value="no" required>
+                                                <label class="form-check-label" for="liveNo">No</label>
+                                            </div>
+                                        </div>
+                                        <!-- Detail -->
+                                        <div class="col-md-9">
+                                            <label for="detail" class="form-label">Detail</label>
+                                            <textarea class="form-control" id="detail" rows="3" required></textarea>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="row mb-3">
+                                        <div class="col-12 text-end">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="reset" class="btn btn-dark">Clear all</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-backdrop fade"></div>
+                </div>
+                <!-- Content wrapper -->
+            </div>
+            <!-- / Layout page -->
+        </div>
+        <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script> -->
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/vendor/js/helpers.js"></script>
+    <script src="../assets/js/config.js"></script>
+</body>
+
+</html>

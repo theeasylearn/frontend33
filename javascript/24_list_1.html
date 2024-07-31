@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>working with list</h1>
+    <hr>
+    <table align="center" border="1" width="80%" cellpadding="10">
+        <tr>
+            <td width="33%">
+                <h3>unsorted states</h3>
+                <ol id="output1"></ol>
+            </td>
+            <td width="33%">
+                <h3>sorted states</h3>
+                <ol id="output2"></ol>
+            </td>
+            <td width="34%" valign="top">
+                <h3>filtered states</h3>
+                <ol id="output3"></ol>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var output1 = document.getElementById('output1');
+        var output2 = document.getElementById('output2');
+
+        //create function 
+        let displayStates = function (target,list) {
+            for (let i = 0; i < list.length; i++) {
+               // console.log(`${list[i]} at ${i} position`);
+                target.innerHTML += `<li><b>${list[i]}</b></li>`;
+            }
+        }
+        //create list 
+        var states = ["Kerala", "Bihar", "Telangana", "Nagaland", "Gujarat", "Andhra Pradesh", "Sikkim", "Odisha", "Maharashtra", "Assam", "Jharkhand", "Himachal Pradesh", "Punjab", "Rajasthan", "West Bengal", "Arunachal Pradesh", "Madhya Pradesh", "Goa", "Uttar  Pradesh", "Tamil Nadu", "Karnataka", "Chhattisgarh", "Manipur", "Meghalaya", "Haryana", "Mizoram"];
+        //add new value into list at the top
+        states.unshift("Tripura");
+        //add new value at the end of list
+        states.push("Uttarakhand");
+        displayStates(output1,states);
+        //sort this list
+        states = states.sort();
+        displayStates(output2,states);
+
+        //lets filter list
+        var filtered_states = states.filter(function(item){
+            console.log(item);
+            if(item.includes('Pradesh')==true)
+                return item; 
+        });
+        console.log(filtered_states);
+        displayStates(output3,filtered_states);
+
+    </script>
+</body>
+
+</html>

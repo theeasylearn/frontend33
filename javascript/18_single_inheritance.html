@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Single Level inheritance</h1> <hr>
+    <p>use console to check output</p>
+    <script>
+        //create parent class using es6 way
+        class Person 
+        {
+            constructor(name)
+            {
+                this.name = name;
+            }
+            walk()
+            {
+                console.log(`${this.name} can walk`);
+            }
+            talk()
+            {
+                console.log(`${this.name} can talk`);
+            }
+        }
+        //create child class using inheritance
+        class Student extends Person
+        {
+            //child class must have constructor if parent class has constructor
+            constructor(name,language)
+            {
+                super(name); //call parent class constructor from child class (compulsory)
+                this.language = language;
+            }
+            write()
+            {
+                console.log(`${this.name} can write in ${this.language}`);
+            }
+            read()
+            {
+                console.log(`${this.name} can read in ${this.language}`);
+            }
+            whatICanDo()
+            {
+                console.log("-----------------------------------------");
+                super.walk(); //call parent class method use super
+                super.talk(); //call parent class method use super
+                this.write(); //call cirremt class method this super
+                this.read(); //call cirremt class method this super
+            }
+        }
+        var name = prompt("what is your name","");
+        var language = prompt("what is your language");
+        //create object of child class
+        var s1 = new Student(name,language);
+        //calling parent class method using child class object
+        s1.walk();
+        s1.talk();
+        //calling child class method using child class object
+        s1.read();
+        s1.write();
+        s1.whatICanDo();
+    </script>
+</body>
+</html>

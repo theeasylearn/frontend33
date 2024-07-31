@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object Cloning</h1>
+    <hr>
+
+    <script>
+        let subject = {
+            name:'PHP',
+            duration:90
+        };
+
+        let newsubject = {}; //empty object
+        console.log('before object cloning ',subject,newsubject);
+        
+        //object cloning
+        for(let key in subject)
+        {
+            console.log(key,subject[key]);
+            newsubject[key] = subject[key];
+        }
+        console.log('after object cloning ',subject,newsubject);
+        subject.name = "Hypertext preprocessor";
+        subject.duration = 120;
+
+        newsubject.name = "ReactJS";
+        newsubject.duration = 150;
+        console.log('after changes cloning ',subject,newsubject);
+
+    </script>
+</body>
+</html>

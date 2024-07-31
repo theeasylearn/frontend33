@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object Binding</h1>
+    <h3 id="output"></h3>
+    <script>
+        let now =
+        {
+            day:new Date().getDate(),
+            month:new Date().getMonth() + 1,
+            year:new Date().getFullYear(),
+            show : function()
+            {
+                document.getElementById('output').innerHTML = this.day + "-" + this.month + "-" + this.year;
+            }
+        }
+        //now.show();
+        //wrong way to create function alias
+        // let today = now.show;
+        //let alias = object.function.bind(object)
+        let today = now.show.bind(now);
+        today();
+    </script>
+</body>
+</html>

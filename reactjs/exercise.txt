@@ -1,0 +1,28 @@
+1) create your own resume using html & css
+2) display 10 mutiplication table using html table tr and td tag.
+3) display day and night choghadiya using html and css. without using table tag 
+    https://www.astrosage.com/chogadia.asp
+
+4) display change password form using bootstrap (old password, new password, confirm new password )
+5) display forgot password form using bootstrap (email)
+6) display register form using bootstrap. (email,mobile, password, confirm password)
+
+7) create bootstrap design to display IPL team name, logo, home ground, captain, no of trophy wins(along with years) using functions with parameters.  team name, logo, home ground, captain, no of trophy wins should be variables of object passed in function. 
+
+8) create reactjs function components to display menu, 4 touriest destinations in gujarat and footer.
+    https://holidayz.makemytrip.com/holidays/india/search?dest=Kashmir
+
+9) create reactjs function components to display Food Dish just like zomato/swiggy. there should be 32 food dishes. it should be stored into array of object. and should be displayed using map function
+
+10) create reactjs function components to display news just like https://www.divyabhaskar.co.in/. there should be 24 news. it should be stored into array of object. and should be displayed using map function
+
+11) recreate bootstrap design to display 12 IPL team name, logo and display symbol of trophy no of times team has win ipl. and display duck for those who has not won any trophy. (conditional rendering)
+
+12) display country data as card using List and keys (map function). data available in country.txt file 
+
+13) display routes data as table using List and keys (map function). data available in routes.txt file 
+
+
+14) create full functional react website using below template 
+https://themewagon.com/themes/travela/
+kindly follow instruction given in class 

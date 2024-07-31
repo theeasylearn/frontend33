@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            margin: 50px auto;
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+        }
+        table tr {
+            margin-bottom: 15px;
+        }
+        table td {
+            padding: 10px;
+        }
+        table input[type="email"],
+        table input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        table input[type="submit"],
+        table input[type="button"]
+         {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        table input[type="submit"]:hover,
+        table input[type="submit"]:button {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="#" method="post" onsubmit="return verifyLogin();">
+            <table>
+                <tr>
+                    <td><label for="username">Username:</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td><input type="password" id="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Login">
+                        <input type="button" value="Print" onclick="window.print();">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        let verifyLogin = () => {
+            //empty object
+            let form = {};
+            console.log(form); //display empty object
+            form.email = document.getElementById('email').value;
+            form.password = document.getElementById('password').value;
+            console.log(form);
+            //check whether login is successfull or not 
+            //assume email is admin@gmail.com & password is 123123
+            if(form.email === 'admin@gmail.com' && form.password === "123123")
+            {
+                alert("login successfull");
+                //user redirect(display) another page (home)
+                window.location = "home.html";
+            }
+            else 
+            {
+                alert("login not successfull");
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
+            }
+            return false; //required to stop refersh web page.
+        }
+    </script>
+</body>
+</html>

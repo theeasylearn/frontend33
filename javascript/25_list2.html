@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>List Map function</h1>
+    <table align="center" border="2" width="80%" cellpadding="10">
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>Name</th>
+                <th>Flag</th>
+            </tr>
+        </thead>
+        <tbody id="output">
+
+        </tbody>
+    </table>
+
+    <script>
+        var coutries = [
+            { name: "Germany", flag: "https://flagpedia.net/data/flags/w580/de.png" },
+            { name: "United Kingdom", flag: "https://flagpedia.net/data/flags/w580/gb.png" },
+            { name: "France", flag: "https://flagpedia.net/data/flags/w580/fr.png" },
+            { name: "Italy", flag: "https://flagpedia.net/data/flags/w580/it.png" },
+            { name: "Spain", flag: "https://flagpedia.net/data/flags/w580/es.png" },
+            { name: "Netherlands", flag: "https://flagpedia.net/data/flags/w580/nl.png" },
+            { name: "Belgium", flag: "https://flagpedia.net/data/flags/w580/be.png" },
+            { name: "Switzerland", flag: "https://flagpedia.net/data/flags/w580/ch.png" },
+            { name: "Austria", flag: "https://flagpedia.net/data/flags/w580/at.png" },
+            { name: "Portugal", flag: "https://flagpedia.net/data/flags/w580/pt.png" },
+            { name: "Sweden", flag: "https://flagpedia.net/data/flags/w580/se.png" },
+            { name: "Norway", flag: "https://flagpedia.net/data/flags/w580/no.png" },
+            { name: "Denmark", flag: "https://flagpedia.net/data/flags/w580/dk.png" },
+            { name: "Finland", flag: "https://flagpedia.net/data/flags/w580/fi.png" },
+            { name: "Greece", flag: "https://flagpedia.net/data/flags/w580/gr.png" },
+            { name: "Poland", flag: "https://flagpedia.net/data/flags/w580/pl.png" },
+            { name: "Czech Republic", flag: "https://flagpedia.net/data/flags/w580/cz.png" },
+            { name: "Hungary", flag: "https://flagpedia.net/data/flags/w580/hu.png" },
+            { name: "Ireland", flag: "https://flagpedia.net/data/flags/w580/ie.png" },
+            { name: "Slovakia", flag: "https://flagpedia.net/data/flags/w580/sk.png" }
+        ];
+        console.log(coutries);
+       
+        var output = document.getElementById('output');
+        coutries.map(function(item,index){
+            let content = ` <tr>
+                <td>${index+1}</td>
+                <td>
+                    ${item.name}
+                </td>
+                <td>
+                    <img src=${item.flag} style='height:150px' />
+                </td>
+            </tr>`;
+            output.innerHTML += content;
+        })
+    </script>
+</body>
+
+</html>

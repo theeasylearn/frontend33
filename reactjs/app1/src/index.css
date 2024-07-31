@@ -1,0 +1,15 @@
+body 
+{
+  background-color: aliceblue;
+}
+.heading 
+{
+    background-color: blue;
+    color:white;
+    text-transform: uppercase;
+}
+.country>li 
+{
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}

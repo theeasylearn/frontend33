@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hybrid inheritance</h1>
+    <h2 id="area1"></h2>
+    <h2 id="area2"></h2>
+    <h2 id="area3"></h2>
+    <hr>
+    <script>
+        class MyMath
+        {
+            getPi()
+            {
+                return 3.141516;
+            }
+            getSquare(number)
+            {
+                //temp is local variable
+                let temp = number * number;
+                return temp;
+            }
+        }
+        class Circle extends MyMath
+        {
+            constructor(radius)
+            {
+                super(); //calling non existing parent class constructor required
+                this.radius = radius;
+            }
+            getArea()
+            {
+                //pi*r*r
+                let area = super.getPi() * this.radius * this.radius;
+                return area.toFixed(2);
+            }
+        }
+        class Cyliender extends MyMath
+        {
+            constructor(radius,height)
+            {
+                super();  //calling non existing parent class constructor required
+                this.radius = radius;
+                this.height = height;
+            }
+            getArea()
+            {
+                //2 * pi * r * h
+                let temp = 2 * super.getPi() * this.radius * this.height;
+                return temp.toFixed(2);
+            }
+        }
+        class Sphere extends Circle 
+        {
+            constructor(radius)
+            {
+                super(radius); //calling parent class constructor 
+            }
+            getSurfaceArea()
+            {
+                //4 * r * r * pi
+                let temp = 4 *  this.getArea()
+                return temp;
+            }
+        }
+        var radius = parseInt(prompt("Enter radius"));
+        var c1 = new Circle(radius);
+
+        var height = parseInt(prompt("Enter height"));
+        var c2 = new Cyliender(radius,height);
+
+        var s1 = new Sphere(radius);
+
+        //get circle area
+        let area = c1.getArea();
+        let area2 = c2.getArea();
+        let surfacearea = s1.getSurfaceArea();
+
+        document.getElementById('area1').innerHTML = `circle area = ${area}`;
+        document.getElementById('area2').innerHTML = `cyliender area = ${area2}`;
+        document.getElementById('area3').innerHTML = `surfacearea = ${surfacearea}`;
+
+        
+    </script>
+</body>
+</html>

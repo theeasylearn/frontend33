@@ -1,0 +1,24 @@
+var europeanCountryData = [
+    { name: "Germany", flag: "https://flagpedia.net/data/flags/w580/de.png" },
+    { name: "United Kingdom", flag: "https://flagpedia.net/data/flags/w580/gb.png" },
+    { name: "France", flag: "https://flagpedia.net/data/flags/w580/fr.png" },
+    { name: "Italy", flag: "https://flagpedia.net/data/flags/w580/it.png" },
+    { name: "Spain", flag: "https://flagpedia.net/data/flags/w580/es.png" },
+    { name: "Netherlands", flag: "https://flagpedia.net/data/flags/w580/nl.png" },
+    { name: "Belgium", flag: "https://flagpedia.net/data/flags/w580/be.png" },
+    { name: "Switzerland", flag: "https://flagpedia.net/data/flags/w580/ch.png" },
+    { name: "Austria", flag: "https://flagpedia.net/data/flags/w580/at.png" },
+    { name: "Portugal", flag: "https://flagpedia.net/data/flags/w580/pt.png" },
+    { name: "Sweden", flag: "https://flagpedia.net/data/flags/w580/se.png" },
+    { name: "Norway", flag: "https://flagpedia.net/data/flags/w580/no.png" },
+    { name: "Denmark", flag: "https://flagpedia.net/data/flags/w580/dk.png" },
+    { name: "Finland", flag: "https://flagpedia.net/data/flags/w580/fi.png" },
+    { name: "Greece", flag: "https://flagpedia.net/data/flags/w580/gr.png" },
+    { name: "Poland", flag: "https://flagpedia.net/data/flags/w580/pl.png" },
+    { name: "Czech Republic", flag: "https://flagpedia.net/data/flags/w580/cz.png" },
+    { name: "Hungary", flag: "https://flagpedia.net/data/flags/w580/hu.png" },
+    { name: "Ireland", flag: "https://flagpedia.net/data/flags/w580/ie.png" },
+    { name: "Slovakia", flag: "https://flagpedia.net/data/flags/w580/sk.png" }
+];
+
+console.log(europeanCountryData);

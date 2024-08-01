@@ -8,3 +8,6 @@ let { num1, num2 } = obj;
 console.log(num1);
 console.log(num2);
 // console.log(obj.num3);
+
+obj.name = "Hadi ";
+console.log(obj);
